@@ -78,16 +78,16 @@
   <div class="authors-modern-container">
     <div class="authors-modern-row">
       <a href="https://tingtingliao.github.io/" class="author-modern-link">
-        <span class="author-name-modern">Tingting Liao</span><sup class="affiliation-sup">1</sup>
+        <span class="author-name-modern">Tingting Liao</span> 
       </a>
       <a href="https://chongjiange.github.io/" class="author-modern-link">
         <span class="author-name-modern">Chongjian Ge</span>
       </a>
       <a href="#" class="author-modern-link">
-        <span class="author-name-modern">Guangyi Liu</span><sup class="affiliation-sup">1</sup>
+        <span class="author-name-modern">Guangyi Liu</span> 
       </a>
       <a href="https://www.hao-li.com" class="author-modern-link">
-        <span class="author-name-modern">Hao Li</span><sup class="affiliation-sup">1</sup>
+        <span class="author-name-modern">Hao Li</span> 
       </a>
       <a href="https://zhouyisjtu.github.io/" class="author-modern-link">
         <span class="author-name-modern">Yi Zhou</span>
@@ -98,7 +98,7 @@
   <!-- Modern institutions display -->
   <div class="institutions-modern">
     <div class="institution-item-modern">
-      <span class="institution-number-modern"><sup>1</sup></span>
+      <!-- <span class="institution-number-modern"><sup>1</sup></span> -->
       <span class="institution-name-modern">Mohamed bin Zayed University of Artificial Intelligence</span>
     </div>
   </div>
@@ -1528,6 +1528,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Create gallery video elements
   const createGalleryVideos = () => {
     fullscreenGalleryContent.innerHTML = '';
+    console.log('Creating gallery with', galleryVideos.length, 'videos');
     galleryVideos.forEach((src, index) => {
       const video = document.createElement('video');
       video.src = src;
@@ -1536,9 +1537,13 @@ document.addEventListener('DOMContentLoaded', () => {
       video.muted = true;
       video.loop = true;
       video.playsInline = true;
-      if (index === 0) video.classList.add('active');
+      if (index === 0) {
+        video.classList.add('active');
+        console.log('First video marked as active');
+      }
       fullscreenGalleryContent.appendChild(video);
     });
+    console.log('Gallery videos created:', fullscreenGalleryContent.children.length);
   };
 
   // Create gallery navigation dots
@@ -1575,11 +1580,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Open fullscreen gallery
   const openFullscreenGallery = () => {
+    console.log('openFullscreenGallery called');
     collectGalleryVideos();
+    console.log('Collected videos:', galleryVideos);
     createGalleryVideos();
     createGalleryDots();
 
     fullscreenModal.classList.add('active');
+    console.log('Modal active class added, display:', window.getComputedStyle(fullscreenModal).display);
     document.body.style.overflow = 'hidden';
     currentGalleryIndex = 0;
 
@@ -1588,7 +1596,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Play all videos
     const videos = fullscreenGalleryContent.querySelectorAll('video');
-    videos.forEach(video => video.play().catch(e => console.log('Video play failed:', e)));
+    console.log('Videos to play:', videos.length);
+    videos.forEach((video, i) => {
+      video.play().catch(e => console.log('Video', i, 'play failed:', e));
+    });
   };
 
   // Close fullscreen gallery

@@ -19,16 +19,6 @@
 <!-- Author -->
 <body class="hero-active">
 
-<!-- Fullscreen Video Gallery Modal -->
-<div class="fullscreen-video-modal" id="fullscreenModal">
-  <button class="fullscreen-close-btn" id="closeFullscreen">×</button>
-  <div class="fullscreen-video-content" id="fullscreenGalleryContent">
-    <!-- Videos will be added dynamically -->
-  </div>
-  <div class="fullscreen-gallery-dots" id="fullscreenGalleryDots">
-    <!-- Dots will be added dynamically -->
-  </div>
-</div>
 
 <!-- Hero Video Background -->
 <div class="hero-video-container" id="heroVideo">
@@ -1140,8 +1130,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 <!------------- More Results ------------------>
-<div class="content more-results-section" id="moreResultsSection">
-  <div class="gallery-click-hint">Click to view fullscreen gallery</div>
+<div class="content more-results-section">
   <h2 class="fancy-title">More Results</h2>
 
   <p style="text-align:center; font-size: 1.1rem; color: #4a5568; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
@@ -1508,142 +1497,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('touchstart', handleTouchStart, { passive: true });
   window.addEventListener('touchmove', handleTouchMove, { passive: true });
 
-  // Fullscreen video gallery functionality
-  const fullscreenModal = document.getElementById('fullscreenModal');
-  const fullscreenGalleryContent = document.getElementById('fullscreenGalleryContent');
-  const fullscreenGalleryDots = document.getElementById('fullscreenGalleryDots');
-  const closeFullscreenBtn = document.getElementById('closeFullscreen');
-  const moreResultsSection = document.getElementById('moreResultsSection');
-
-  let galleryVideos = [];
-  let currentGalleryIndex = 0;
-  let galleryRotationInterval = null;
-
-  // Collect all video sources from More Results section
-  const collectGalleryVideos = () => {
-    const videos = document.querySelectorAll('.more-results-section .video-wrapper video source');
-    galleryVideos = Array.from(videos).map(source => source.src);
-  };
-
-  // Create gallery video elements
-  const createGalleryVideos = () => {
-    fullscreenGalleryContent.innerHTML = '';
-    console.log('Creating gallery with', galleryVideos.length, 'videos');
-    galleryVideos.forEach((src, index) => {
-      const video = document.createElement('video');
-      video.src = src;
-      video.className = 'fullscreen-gallery-video';
-      video.autoplay = true;
-      video.muted = true;
-      video.loop = true;
-      video.playsInline = true;
-      if (index === 0) {
-        video.classList.add('active');
-        console.log('First video marked as active');
-      }
-      fullscreenGalleryContent.appendChild(video);
-    });
-    console.log('Gallery videos created:', fullscreenGalleryContent.children.length);
-  };
-
-  // Create gallery navigation dots
-  const createGalleryDots = () => {
-    fullscreenGalleryDots.innerHTML = '';
-    galleryVideos.forEach((_, index) => {
-      const dot = document.createElement('div');
-      dot.className = 'fullscreen-gallery-dot';
-      if (index === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => switchGalleryVideo(index));
-      fullscreenGalleryDots.appendChild(dot);
-    });
-  };
-
-  // Switch to specific gallery video
-  const switchGalleryVideo = (index) => {
-    const videos = fullscreenGalleryContent.querySelectorAll('.fullscreen-gallery-video');
-    const dots = fullscreenGalleryDots.querySelectorAll('.fullscreen-gallery-dot');
-
-    videos[currentGalleryIndex].classList.remove('active');
-    dots[currentGalleryIndex].classList.remove('active');
-
-    currentGalleryIndex = index;
-
-    videos[currentGalleryIndex].classList.add('active');
-    dots[currentGalleryIndex].classList.add('active');
-  };
-
-  // Rotate gallery videos
-  const rotateGalleryVideos = () => {
-    const nextIndex = (currentGalleryIndex + 1) % galleryVideos.length;
-    switchGalleryVideo(nextIndex);
-  };
-
-  // Open fullscreen gallery
-  const openFullscreenGallery = () => {
-    console.log('openFullscreenGallery called');
-    collectGalleryVideos();
-    console.log('Collected videos:', galleryVideos);
-    createGalleryVideos();
-    createGalleryDots();
-
-    fullscreenModal.classList.add('active');
-    console.log('Modal active class added, display:', window.getComputedStyle(fullscreenModal).display);
-    document.body.style.overflow = 'hidden';
-    currentGalleryIndex = 0;
-
-    // Start auto-rotation every 4 seconds
-    galleryRotationInterval = setInterval(rotateGalleryVideos, 4000);
-
-    // Play all videos
-    const videos = fullscreenGalleryContent.querySelectorAll('video');
-    console.log('Videos to play:', videos.length);
-    videos.forEach((video, i) => {
-      video.play().catch(e => console.log('Video', i, 'play failed:', e));
-    });
-  };
-
-  // Close fullscreen gallery
-  const closeFullscreenGallery = () => {
-    fullscreenModal.classList.remove('active');
-    document.body.style.overflow = '';
-
-    if (galleryRotationInterval) {
-      clearInterval(galleryRotationInterval);
-      galleryRotationInterval = null;
-    }
-
-    // Clean up
-    setTimeout(() => {
-      fullscreenGalleryContent.innerHTML = '';
-      fullscreenGalleryDots.innerHTML = '';
-    }, 500);
-  };
-
-  // Click on More Results section to open gallery
-  if (moreResultsSection) {
-    moreResultsSection.addEventListener('click', (e) => {
-      console.log('Click detected on more results section');
-      // Don't open if clicking on carousel controls
-      if (e.target.closest('.carousel-btn') || e.target.closest('.carousel-dot')) {
-        console.log('Ignoring click on carousel controls');
-        return;
-      }
-      console.log('Opening fullscreen gallery');
-      openFullscreenGallery();
-    });
-  } else {
-    console.error('More Results section not found');
-  }
-
-  // Close button click
-  closeFullscreenBtn.addEventListener('click', closeFullscreenGallery);
-
-  // Close on ESC key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && fullscreenModal.classList.contains('active')) {
-      closeFullscreenGallery();
-    }
-  });
 });
 </script>
 

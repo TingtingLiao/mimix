@@ -1,0 +1,1346 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="./src/img/chick.png">
+
+<!-- Title -->
+<title>mimix</title>
+<link href="./src/css/style.css" rel="stylesheet">
+<link rel="stylesheet" href="./src/css/bulma.min.css">
+<link rel="stylesheet" href="./src/css/bulma-carousel.min.css">
+<link rel="stylesheet" href="./src/css/index.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./src/js/bulma-carousel.min.js"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="./src/js/index.js"></script>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+</head>
+
+<!-- Author -->
+<body>
+<div class="header-content">
+  <!-- Decorative elements -->
+  <div class="header-decoration top-left"></div>
+  <div class="header-decoration bottom-right"></div>
+
+  <!-- Modern gradient title with letter animation -->
+  <h1 class="modern-title">
+    <span class="title-letter" data-letter="M" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">M</span><span class="title-letter" data-letter="I" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">I</span><span class="title-letter" data-letter="M" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">M</span><span class="title-letter" data-letter="I" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">I</span><span class="title-letter" data-letter="X" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">X</span>
+  </h1>
+
+  <!-- Professional subtitle -->
+  <p class="modern-subtitle">
+    <span style="color: #4A5568;"> </span>Character <span style="color: #2D3748;"> </span>Mixing
+    <span style="color: #1A365D;"> </span>for <span style="color: #22543D;"> </span>Video <span style="color: #2B6CB0;"> </span>Generation
+  </p>
+
+  <!-- Conference -->
+  <!-- <div class="conference-top"></div> -->
+
+  <!-- Modern authors section with better spacing -->
+  <div class="authors-modern-container">
+    <div class="authors-modern-row">
+      <a href="#" class="author-modern-link">
+        <span class="author-name-modern">First Author</span><sup class="affiliation-sup">1</sup>
+      </a>
+      <a href="#" class="author-modern-link">
+        <span class="author-name-modern">Second Author</span><sup class="affiliation-sup">1,2</sup>
+      </a>
+      <a href="#" class="author-modern-link">
+        <span class="author-name-modern">Third Author</span><sup class="affiliation-sup">2</sup>
+      </a>
+      <a href="#" class="author-modern-link">
+        <span class="author-name-modern">Fourth Author</span><sup class="affiliation-sup">3</sup>
+      </a>
+      <a href="#" class="author-modern-link">
+        <span class="author-name-modern">Senior Author</span><sup class="affiliation-sup">1,3*</sup>
+      </a>
+    </div>
+  </div>
+
+  <!-- Modern institutions display -->
+  <div class="institutions-modern">
+    <div class="institution-item-modern">
+      <span class="institution-number-modern"><sup>1</sup></span>
+      <span class="institution-name-modern">Your University</span>
+    </div>
+    <div class="institution-item-modern">
+      <span class="institution-number-modern"><sup>2</sup></span>
+      <span class="institution-name-modern">Collaborator University</span>
+    </div>
+    <div class="institution-item-modern">
+      <span class="institution-number-modern"><sup>3</sup></span>
+      <span class="institution-name-modern">Research Lab</span>
+    </div>
+  </div>
+
+  <!-- Modern buttons section -->
+  <div class="buttons-modern">
+    <a target="_blank" href="#" class="button-modern button-paper">
+      <img src="./src/img/th.png" alt="arXiv" class="button-icon arxiv-icon" style="width: 20px; height: 20px;">
+      <span>arXiv Paper</span>
+    </a>
+    <a target="_blank" href="#" class="button-modern button-code">
+      <img src="./src/img/github.png" alt="GitHub" class="button-icon" style="width: 20px; height: 20px;">
+      <span>Source Code</span>
+    </a>
+    <a href="#" target="_blank" class="button-modern button-video">
+      <img src="./src/img/youtube.png" alt="YouTube" class="button-icon" style="width: 20px; height: 20px;">
+      <span>Supplementary</span>
+    </a>
+  </div>
+
+</div>
+
+<!------------- Abstract ------------------>
+
+<div class="content">
+  <h2 style="text-align:center"><strong>Abstract</strong></h2>
+  Imagine Mr. Bean stepping into the cartoon Tom and Jerry—can we generate videos where our favorite characters interact naturally in new contexts?
+  Motivated by this question, we study inter-character interaction in text-to-video generation, aiming to synthesize natural interactions while preserving individual identity and behaviors.
+  This task introduces two main challenges. 
+  First, the characters may have <strong>never coexisted</strong>, making it difficult to generate faithful and coherent interactions. 
+  Second, combining different styled characters often leads to undesirable style shifts—for example, realistic characters appearing cartoonish—a failure mode we refer to as <strong>style delusion</strong>. This phenomenon arises because training videos typically belong to a single, homogeneous style. 
+  To address these challenges, we study how disentangling character identity and visual style influences the quality of character mixing and interaction synthesis in generated videos.
+  For character disentanglement, we examine how captioning strategies affect the model’s ability to learn and ground each character as a distinct concept.
+  For style disentanglement, we introduce augmented data and  analyze how varying their amount impacts the mitigation of style delusion, while ensuring that overall video quality is not degraded.  
+  Extensive experiments demonstrate that our method outperforms state-of-the-art approaches across multiple aspects, including identity preservation, personalized motion preservation, style preservation, interaction plausibility, and video quality.
+
+  <div style="margin: 30px auto; max-width: 1200px;">
+    <h4 style="text-align: center; color: #667eea; margin-bottom: 20px;">Style Delusion Examples</h4>
+    <div style="display: flex; gap: 20px; justify-content: center;">
+      <div class="video-wrapper" style="flex: 1; max-width: 500px;">
+        <video autoplay muted loop controls style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+          <source src="./src/videos/style_delusion_examples/Mr._Bean_sits_on_the_couch._Jerry_peeks_from_a_cus.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p style="text-align: center; margin-top: 10px; color: #666; font-size: 0.9rem;">Mr. Bean appears cartoonish.</p>
+      </div>
+      <div class="video-wrapper" style="flex: 1; max-width: 500px;">
+        <video autoplay muted loop controls style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+          <source src="./src/videos/style_delusion_examples/Mr._Bean_tries_to_secretly_pra.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p style="text-align: center; margin-top: 10px; color: #666; font-size: 0.9rem;">Ice Bear appears realistic</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!------------- Method Overview ------------------>
+<!-- <div class="content">
+  <h2 style="text-align:center"><strong>Method Overview</strong></h2>
+  <img src="./src/img/method_pipeline.png" alt="Method Pipeline" style="display: block; margin: 0 auto; width: 100%; max-width: 800px;">
+  <p style="text-align: center; margin-top: 15px; font-style: italic; color: #666;">
+    ss
+</div> -->
+
+<style>
+  .multi-char-section, .single-char-section, .more-results-section {
+    /* Removed gradient background to keep pure white from .content class */
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(180deg); }
+  }
+
+  .fancy-title {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin-bottom: 1rem;
+    animation: glow 3s ease-in-out infinite;
+  }
+
+  @keyframes glow {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.2); }
+  }
+
+  .method-badges {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+
+  .method-badge {
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .method-ours {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(67, 233, 123, 0.3);
+  }
+
+  .method-ours:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(67, 233, 123, 0.4);
+  }
+
+  .method-baseline {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(250, 112, 154, 0.3);
+  }
+
+  .method-baseline:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(250, 112, 154, 0.4);
+  }
+
+  /* Carousel Styles */
+  .video-carousel {
+    position: relative;
+    max-width: 1400px;
+    margin: 50px auto;
+    padding: 0 20px;
+  }
+
+  .carousel-container {
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    padding: 20px 20px 10px 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+  }
+
+  .carousel-slides {
+    position: relative;
+    min-height: auto;
+  }
+
+  .carousel-slide {
+    display: none;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .carousel-slide.active {
+    display: block;
+    opacity: 1;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .showcase-label {
+    display: inline-block;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .showcase-title {
+    font-size: 1.3rem;
+    color: #2d3748;
+    margin: 15px 0 10px 0;
+    font-weight: 700;
+  }
+
+  .video-wrapper {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 70vh;
+    object-fit: contain;
+  }
+
+  .comparison-indicator {
+    position: absolute;
+    top: 15px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 20px;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .indicator-badge {
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+  }
+
+  /* Special effects for "Ours" badges */
+  .indicator-ours {
+    background: linear-gradient(45deg, #4CAF50, #66BB6A, #81C784, #4CAF50) !important;
+    background-size: 300% 300%;
+    animation: gradient-shift 3s ease infinite, glow-pulse 2s ease-in-out infinite;
+    color: white !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    padding: 8px 18px !important;
+    box-shadow:
+      0 0 20px rgba(76, 175, 80, 0.6),
+      0 0 40px rgba(76, 175, 80, 0.3),
+      inset 0 0 10px rgba(255, 255, 255, 0.2) !important;
+    border: 2px solid rgba(255, 255, 255, 0.5) !important;
+    position: relative;
+    overflow: hidden;
+    transform: scale(1.1);
+    z-index: 10;
+  }
+
+  .indicator-ours::before {
+    content: '⭐';
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: star-spin 3s linear infinite;
+    font-size: 0.8rem;
+  }
+
+  .indicator-ours::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 70%
+    );
+    animation: shimmer 3s infinite;
+  }
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow:
+        0 0 20px rgba(76, 175, 80, 0.6),
+        0 0 40px rgba(76, 175, 80, 0.3),
+        inset 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+    50% {
+      box-shadow:
+        0 0 30px rgba(76, 175, 80, 0.9),
+        0 0 60px rgba(76, 175, 80, 0.6),
+        inset 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+  }
+
+  @keyframes star-spin {
+    from { transform: translateY(-50%) rotate(0deg); }
+    to { transform: translateY(-50%) rotate(360deg); }
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+  }
+
+  .indicator-left {
+    background: rgba(250, 112, 154, 0.9);
+    color: white;
+  }
+
+  .indicator-right {
+    background: rgba(67, 233, 123, 0.9);
+    color: white;
+  }
+
+  /* Carousel Controls */
+  .carousel-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 15px;
+  }
+
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 18px;
+  }
+
+  .carousel-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+  }
+
+  .carousel-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .carousel-dots {
+    display: flex;
+    gap: 8px;
+  }
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .carousel-dot.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transform: scale(1.3);
+  }
+
+  .carousel-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+    transition: width 8s linear;
+    width: 0;
+  }
+
+  .carousel-progress.active {
+    width: 100%;
+  }
+
+  .play-pause-btn {
+    padding: 8px 20px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .play-pause-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(79, 172, 254, 0.3);
+  }
+</style>
+
+<div class="content multi-char-section">
+  <h2 class="fancy-title">Multi-character Comparison</h2>
+
+  <p style="text-align:center; font-size: 1.1rem; color: #4a5568; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+    Experience the power of character mixing as diverse personalities interact naturally in unprecedented scenarios
+  </p>
+
+  <!-- <div class="method-badges">
+    <div class="method-badge method-baseline"> 
+      <span>Skyreel-A2 (Left)</span>
+    </div>
+    <div class="method-badge method-ours"> 
+      <span>Our Method (Right)</span>
+    </div>
+  </div> -->
+
+  <div class="video-carousel">
+    <div class="carousel-container">
+      <div class="carousel-progress" id="multiCharProgress"></div>
+      <div class="carousel-slides" id="multiCharSlides">
+        <!-- Slide 1 -->
+        <div class="carousel-slide active"> 
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge indicator-left">Skyreel-A2</span>
+              <span class="indicator-badge indicator-right indicator-ours">Ours</span>
+            </div>
+            <video autoplay muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/multi_comparison/pair_1_bean_tom_comparison.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-slide"> 
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge indicator-left">Skyreel-A2</span>
+              <span class="indicator-badge indicator-right indicator-ours">Ours</span>
+            </div>
+            <video muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/multi_comparison/pair_2_fishing_comparison.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-slide"> 
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge indicator-left">Skyreel-A2</span>
+              <span class="indicator-badge indicator-right indicator-ours">Ours</span>
+            </div>
+            <video muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/multi_comparison/pair_3_bakery_comparison.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="carousel-slide"> 
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge indicator-left">Skyreel-A2</span>
+              <span class="indicator-badge indicator-right indicator-ours">Ours</span>
+            </div>
+            <video muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/multi_comparison/pair_4_tea_party_comparison.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="carousel-slide"> 
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge indicator-left">Skyreel-A2</span>
+              <span class="indicator-badge indicator-right indicator-ours">Ours</span>
+            </div>
+            <video muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/multi_comparison/pair_5_aquarium_comparison.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="carousel-slide"> 
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge indicator-left">Skyreel-A2</span>
+              <span class="indicator-badge indicator-right indicator-ours">Ours</span>
+            </div>
+            <video muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/multi_comparison/pair_6_tech_startup_comparison.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Slide 7 -->
+        <div class="carousel-slide"> 
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge indicator-left">Skyreel-A2</span>
+              <span class="indicator-badge indicator-right indicator-ours">Ours</span>
+            </div>
+            <video muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/multi_comparison/pair_7_mall_security_comparison.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel Controls -->
+      <div class="carousel-controls">
+        <button class="carousel-btn" onclick="prevSlide('multiChar')">‹</button>
+        <div class="carousel-dots" id="multiCharDots">
+          <span class="carousel-dot active" onclick="goToSlide('multiChar', 0)"></span>
+          <span class="carousel-dot" onclick="goToSlide('multiChar', 1)"></span>
+          <span class="carousel-dot" onclick="goToSlide('multiChar', 2)"></span>
+          <span class="carousel-dot" onclick="goToSlide('multiChar', 3)"></span>
+          <span class="carousel-dot" onclick="goToSlide('multiChar', 4)"></span>
+          <span class="carousel-dot" onclick="goToSlide('multiChar', 5)"></span>
+          <span class="carousel-dot" onclick="goToSlide('multiChar', 6)"></span>
+        </div>
+        <button class="carousel-btn" onclick="nextSlide('multiChar')">›</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Carousel functionality
+const carousels = {
+  multiChar: {
+    currentSlide: 0,
+    autoPlay: true,
+    interval: null,
+    slidesContainer: 'multiCharSlides',
+    dotsContainer: 'multiCharDots',
+    playPauseBtn: 'multiCharPlayPause',
+    progressBar: 'multiCharProgress'
+  },
+  singleChar: {
+    currentSlide: 0,
+    autoPlay: true,
+    interval: null,
+    slidesContainer: 'singleCharSlides',
+    dotsContainer: 'singleCharDots',
+    playPauseBtn: 'singleCharPlayPause',
+    progressBar: 'singleCharProgress'
+  },
+  moreResults: {
+    currentSlide: 0,
+    autoPlay: true,
+    interval: null,
+    slidesContainer: 'moreResultsSlides',
+    dotsContainer: 'moreResultsDots',
+    playPauseBtn: 'moreResultsPlayPause',
+    progressBar: 'moreResultsProgress'
+  }
+};
+
+function showSlide(carouselId, slideIndex) {
+  const carousel = carousels[carouselId];
+  const slides = document.getElementById(carousel.slidesContainer).children;
+  const dots = document.getElementById(carousel.dotsContainer).children;
+  const progressBar = document.getElementById(carousel.progressBar);
+
+  // Hide all slides and deactivate dots
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].classList.remove('active');
+    if (dots[i]) dots[i].classList.remove('active');
+    // Stop all videos in inactive slides
+    const videos = slides[i].querySelectorAll('video');
+    if (i !== slideIndex) {
+      videos.forEach(video => video.pause());
+    }
+  }
+
+  // Show current slide and activate dot
+  slides[slideIndex].classList.add('active');
+  if (dots[slideIndex]) dots[slideIndex].classList.add('active');
+
+  // Play all videos in the current slide
+  const currentVideos = slides[slideIndex].querySelectorAll('video');
+  currentVideos.forEach(video => video.play());
+
+  // Reset and start progress bar animation
+  progressBar.classList.remove('active');
+  void progressBar.offsetWidth; // Force reflow
+  if (carousel.autoPlay) {
+    progressBar.classList.add('active');
+  }
+
+  carousel.currentSlide = slideIndex;
+}
+
+function nextSlide(carouselId) {
+  const carousel = carousels[carouselId];
+  const slides = document.getElementById(carousel.slidesContainer).children;
+  const nextIndex = (carousel.currentSlide + 1) % slides.length;
+  showSlide(carouselId, nextIndex);
+}
+
+function prevSlide(carouselId) {
+  const carousel = carousels[carouselId];
+  const slides = document.getElementById(carousel.slidesContainer).children;
+  const prevIndex = (carousel.currentSlide - 1 + slides.length) % slides.length;
+  showSlide(carouselId, prevIndex);
+}
+
+function goToSlide(carouselId, slideIndex) {
+  showSlide(carouselId, slideIndex);
+  // Reset auto-play timer when manually selecting
+  if (carousels[carouselId].autoPlay) {
+    stopAutoPlay(carouselId);
+    startAutoPlay(carouselId);
+  }
+}
+
+function startAutoPlay(carouselId) {
+  const carousel = carousels[carouselId];
+  carousel.autoPlay = true;
+  carousel.interval = setInterval(() => {
+    nextSlide(carouselId);
+  }, 8000); // Change slide every 8 seconds
+
+
+  const progressBar = document.getElementById(carousel.progressBar);
+  if (progressBar) progressBar.classList.add('active');
+}
+
+function stopAutoPlay(carouselId) {
+  const carousel = carousels[carouselId];
+  carousel.autoPlay = false;
+  if (carousel.interval) {
+    clearInterval(carousel.interval);
+    carousel.interval = null;
+  }
+
+
+  const progressBar = document.getElementById(carousel.progressBar);
+  if (progressBar) {
+    progressBar.classList.remove('active');
+    progressBar.style.width = '0';
+  }
+}
+
+function toggleAutoPlay(carouselId) {
+  const carousel = carousels[carouselId];
+  if (carousel.autoPlay) {
+    stopAutoPlay(carouselId);
+  } else {
+    startAutoPlay(carouselId);
+  }
+}
+
+// Initialize carousels
+document.addEventListener('DOMContentLoaded', () => {
+  startAutoPlay('multiChar');
+  startAutoPlay('singleChar');
+  startAutoPlay('moreResults');
+});
+</script>
+
+
+<!------------- Single Character Results ------------------>
+<div class="content single-char-section">
+  <h2 class="fancy-title">Single-character Comparison</h2>
+
+  <p style="text-align:center; font-size: 1.1rem; color: #4a5568; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+    Comparing our method against state-of-the-art approaches in single-character video generation
+  </p>
+
+  <div class="video-carousel">
+    <div class="carousel-container">
+      <div class="carousel-progress" id="singleCharProgress"></div>
+      <div class="carousel-slides" id="singleCharSlides">
+        <!-- Slide 1 -->
+        <div class="carousel-slide active">
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
+              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
+              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
+            </div>
+            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
+              <span class="indicator-badge indicator-ours">Ours</span>
+              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
+            </div>
+            <video autoplay muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/single_comparison/example_01_grid.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
+              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
+              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
+            </div>
+            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
+              <span class="indicator-badge indicator-ours">Ours</span>
+              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
+            </div>
+            <video muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/single_comparison/example_04_grid.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
+              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
+              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
+            </div>
+            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
+              <span class="indicator-badge indicator-ours">Ours</span>
+              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
+            </div>
+            <video muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/single_comparison/example1_grid.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
+              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
+              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
+            </div>
+            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
+              <span class="indicator-badge indicator-ours">Ours</span>
+              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
+            </div>
+            <video muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/single_comparison/example_14_grid.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
+              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
+              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
+            </div>
+            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
+              <span class="indicator-badge indicator-ours">Ours</span>
+              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
+            </div>
+            <video muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/single_comparison/example_10_grid.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
+              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
+              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
+            </div>
+            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
+              <span class="indicator-badge indicator-ours">Ours</span>
+              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
+            </div>
+            <video muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/single_comparison/example_20_grid.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Slide 7 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
+              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
+              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
+            </div>
+            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
+              <span class="indicator-badge indicator-ours">Ours</span>
+              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
+            </div>
+            <video muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/single_comparison/example_21_grid.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Slide 8 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
+              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
+              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
+            </div>
+            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
+              <span class="indicator-badge indicator-ours">Ours</span>
+              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
+            </div>
+            <video muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/single_comparison/example_22_grid.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Slide 9 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
+              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
+              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
+            </div>
+            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
+              <span class="indicator-badge indicator-ours">Ours</span>
+              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
+            </div>
+            <video muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/single_comparison/example_25_grid.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Slide 10 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
+              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
+              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
+            </div>
+            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
+              <span class="indicator-badge indicator-ours">Ours</span>
+              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
+            </div>
+            <video muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/single_comparison/example_28_grid.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Slide 11 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
+              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
+              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
+            </div>
+            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
+              <span class="indicator-badge indicator-ours">Ours</span>
+              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
+            </div>
+            <video muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/single_comparison/example2_grid.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Slide 12 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
+              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
+              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
+            </div>
+            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
+              <span class="indicator-badge indicator-ours">Ours</span>
+              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
+            </div>
+            <video muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/single_comparison/example_30_grid.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Slide 13 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
+              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
+              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
+            </div>
+            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
+              <span class="indicator-badge indicator-ours">Ours</span>
+              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
+            </div>
+            <video muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/single_comparison/example_31_grid.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Slide 14 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
+              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
+              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
+            </div>
+            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
+              <span class="indicator-badge indicator-ours">Ours</span>
+              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
+            </div>
+            <video muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/single_comparison/example_george1_grid.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Slide 15 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
+              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
+              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
+            </div>
+            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
+              <span class="indicator-badge indicator-ours">Ours</span>
+              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
+            </div>
+            <video muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/single_comparison/example_george2_grid.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Slide 16 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
+              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
+              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
+            </div>
+            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
+              <span class="indicator-badge indicator-ours">Ours</span>
+              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
+            </div>
+            <video muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/single_comparison/example_penny1_grid.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Slide 17 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <div class="comparison-indicator">
+              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
+              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
+              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
+            </div>
+            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
+              <span class="indicator-badge indicator-ours">Ours</span>
+              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
+            </div>
+            <video muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/single_comparison/example_penny2_grid.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel Controls -->
+      <div class="carousel-controls">
+        <button class="carousel-btn" onclick="prevSlide('singleChar')">‹</button>
+        <div class="carousel-dots" id="singleCharDots">
+          <span class="carousel-dot active" onclick="goToSlide('singleChar', 0)"></span>
+          <span class="carousel-dot" onclick="goToSlide('singleChar', 1)"></span>
+          <span class="carousel-dot" onclick="goToSlide('singleChar', 2)"></span>
+          <span class="carousel-dot" onclick="goToSlide('singleChar', 3)"></span>
+          <span class="carousel-dot" onclick="goToSlide('singleChar', 4)"></span>
+          <span class="carousel-dot" onclick="goToSlide('singleChar', 5)"></span>
+          <span class="carousel-dot" onclick="goToSlide('singleChar', 6)"></span>
+          <span class="carousel-dot" onclick="goToSlide('singleChar', 7)"></span>
+          <span class="carousel-dot" onclick="goToSlide('singleChar', 8)"></span>
+          <span class="carousel-dot" onclick="goToSlide('singleChar', 9)"></span>
+          <span class="carousel-dot" onclick="goToSlide('singleChar', 10)"></span>
+          <span class="carousel-dot" onclick="goToSlide('singleChar', 11)"></span>
+          <span class="carousel-dot" onclick="goToSlide('singleChar', 12)"></span>
+          <span class="carousel-dot" onclick="goToSlide('singleChar', 13)"></span>
+          <span class="carousel-dot" onclick="goToSlide('singleChar', 14)"></span>
+          <span class="carousel-dot" onclick="goToSlide('singleChar', 15)"></span>
+          <span class="carousel-dot" onclick="goToSlide('singleChar', 16)"></span>
+        </div>
+        <button class="carousel-btn" onclick="nextSlide('singleChar')">›</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!------------- More Results ------------------>
+<div class="content more-results-section">
+  <h2 class="fancy-title">More Results</h2>
+
+  <p style="text-align:center; font-size: 1.1rem; color: #4a5568; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+    Additional examples showcasing diverse character interactions and scenarios
+  </p>
+
+  <div class="video-carousel" style="max-width: 1600px; margin: 0 auto;">
+    <div class="carousel-container">
+      <div class="carousel-progress" id="moreResultsProgress"></div>
+      <div class="carousel-slides" id="moreResultsSlides">
+        <!-- Slide 1 - 2 videos -->
+        <div class="carousel-slide active">
+          <div style="display: flex; gap: 20px; justify-content: center;">
+            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
+              <video autoplay muted loop controls style="width: 100%; height: auto;">
+                <source src="./src/videos/more_results/01.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
+              <video autoplay muted loop controls style="width: 100%; height: auto;">
+                <source src="./src/videos/more_results/02.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 - 2 videos -->
+        <div class="carousel-slide">
+          <div style="display: flex; gap: 20px; justify-content: center;">
+            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
+              <video muted loop controls style="width: 100%; height: auto;">
+                <source src="./src/videos/more_results/03.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
+              <video muted loop controls style="width: 100%; height: auto;">
+                <source src="./src/videos/more_results/04.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 - 2 videos -->
+        <div class="carousel-slide">
+          <div style="display: flex; gap: 20px; justify-content: center;">
+            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
+              <video muted loop controls style="width: 100%; height: auto;">
+                <source src="./src/videos/more_results/05.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
+              <video muted loop controls style="width: 100%; height: auto;">
+                <source src="./src/videos/more_results/06.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 - 2 videos -->
+        <div class="carousel-slide">
+          <div style="display: flex; gap: 20px; justify-content: center;">
+            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
+              <video muted loop controls style="width: 100%; height: auto;">
+                <source src="./src/videos/more_results/07.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
+              <video muted loop controls style="width: 100%; height: auto;">
+                <source src="./src/videos/more_results/08.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 5 - 2 videos -->
+        <div class="carousel-slide">
+          <div style="display: flex; gap: 20px; justify-content: center;">
+            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
+              <video muted loop controls style="width: 100%; height: auto;">
+                <source src="./src/videos/more_results/09.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
+              <video muted loop controls style="width: 100%; height: auto;">
+                <source src="./src/videos/more_results/10.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 6 - 2 videos -->
+        <div class="carousel-slide">
+          <div style="display: flex; gap: 20px; justify-content: center;">
+            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
+              <video muted loop controls style="width: 100%; height: auto;">
+                <source src="./src/videos/more_results/11.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
+              <video muted loop controls style="width: 100%; height: auto;">
+                <source src="./src/videos/more_results/12.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 7 - 2 videos -->
+        <div class="carousel-slide">
+          <div style="display: flex; gap: 20px; justify-content: center;">
+            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
+              <video muted loop controls style="width: 100%; height: auto;">
+                <source src="./src/videos/more_results/13.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
+              <video muted loop controls style="width: 100%; height: auto;">
+                <source src="./src/videos/more_results/14.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 8 - 2 videos -->
+        <div class="carousel-slide">
+          <div style="display: flex; gap: 20px; justify-content: center;">
+            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
+              <video muted loop controls style="width: 100%; height: auto;">
+                <source src="./src/videos/more_results/15.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
+              <video muted loop controls style="width: 100%; height: auto;">
+                <source src="./src/videos/more_results/16.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 9 - 2 videos -->
+        <div class="carousel-slide">
+          <div style="display: flex; gap: 20px; justify-content: center;">
+            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
+              <video muted loop controls style="width: 100%; height: auto;">
+                <source src="./src/videos/more_results/17.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
+              <video muted loop controls style="width: 100%; height: auto;">
+                <source src="./src/videos/more_results/18.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 10 - 2 videos -->
+        <div class="carousel-slide">
+          <div style="display: flex; gap: 20px; justify-content: center;">
+            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
+              <video muted loop controls style="width: 100%; height: auto;">
+                <source src="./src/videos/more_results/19.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
+              <video muted loop controls style="width: 100%; height: auto;">
+                <source src="./src/videos/more_results/20.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel Controls -->
+      <div class="carousel-controls">
+        <button class="carousel-btn" onclick="prevSlide('moreResults')">‹</button>
+        <div class="carousel-dots" id="moreResultsDots">
+          <span class="carousel-dot active" onclick="goToSlide('moreResults', 0)"></span>
+          <span class="carousel-dot" onclick="goToSlide('moreResults', 1)"></span>
+          <span class="carousel-dot" onclick="goToSlide('moreResults', 2)"></span>
+          <span class="carousel-dot" onclick="goToSlide('moreResults', 3)"></span>
+          <span class="carousel-dot" onclick="goToSlide('moreResults', 4)"></span>
+          <span class="carousel-dot" onclick="goToSlide('moreResults', 5)"></span>
+          <span class="carousel-dot" onclick="goToSlide('moreResults', 6)"></span>
+          <span class="carousel-dot" onclick="goToSlide('moreResults', 7)"></span>
+          <span class="carousel-dot" onclick="goToSlide('moreResults', 8)"></span>
+          <span class="carousel-dot" onclick="goToSlide('moreResults', 9)"></span>
+        </div>
+        <button class="carousel-btn" onclick="nextSlide('moreResults')">›</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!------------- Citation ------------------>
+<div class="content">
+  <h2 style="text-align:center"><strong>Citation</strong></h2>
+  <div style="background-color: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #667eea; margin: 20px 0;">
+    <pre style="background: none; padding: 0; margin: 0; font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace; font-size: 14px; color: #2d3748;">@article{mimix2025,
+  title={CHARACTER MIXING FOR VIDEO GENERATION},
+  author={Anonymous Author},
+  journal={},
+  year={2025}
+}</pre>
+  </div>
+</div>
+
+ 
+ 
+
+</body>
+</html>

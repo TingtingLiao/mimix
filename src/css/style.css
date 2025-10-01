@@ -44,6 +44,12 @@ body {
   object-fit: cover;
   object-position: center;
   filter: blur(0px);
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.hero-video.active {
+  opacity: 1;
 }
 
 .hero-overlay {

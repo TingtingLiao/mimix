@@ -20,8 +20,17 @@
 <body class="hero-active">
 <!-- Hero Video Background -->
 <div class="hero-video-container" id="heroVideo">
-  <video autoplay muted loop playsinline class="hero-video">
+  <video autoplay muted loop playsinline class="hero-video active" id="heroVideoPlayer1">
     <source src="./src/videos/more_results/08.mp4" type="video/mp4">
+  </video>
+  <video autoplay muted loop playsinline class="hero-video" id="heroVideoPlayer2">
+    <source src="./src/videos/more_results/04.mp4" type="video/mp4">
+  </video>
+  <video autoplay muted loop playsinline class="hero-video" id="heroVideoPlayer3">
+    <source src="./src/videos/more_results/07.mp4" type="video/mp4">
+  </video>
+  <video autoplay muted loop playsinline class="hero-video" id="heroVideoPlayer4">
+    <source src="./src/videos/more_results/aquarium.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay">
     <div class="scroll-indicator">Scroll Down</div>
@@ -1342,16 +1351,47 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 
 <script>
-// Hero video scroll behavior
+// Hero video scroll behavior with rotation
 document.addEventListener('DOMContentLoaded', () => {
   const heroVideo = document.getElementById('heroVideo');
   const body = document.body;
+  const videoPlayers = [
+    document.getElementById('heroVideoPlayer1'),
+    document.getElementById('heroVideoPlayer2'),
+    document.getElementById('heroVideoPlayer3'),
+    document.getElementById('heroVideoPlayer4')
+  ];
+
   let hasScrolled = false;
+  let currentVideoIndex = 0;
+  let videoRotationInterval;
+
+  // Start all videos playing
+  videoPlayers.forEach(video => {
+    video.play().catch(e => console.log('Video autoplay failed:', e));
+  });
+
+  // Rotate videos with crossfade effect
+  const rotateVideos = () => {
+    const currentVideo = videoPlayers[currentVideoIndex];
+    const nextIndex = (currentVideoIndex + 1) % videoPlayers.length;
+    const nextVideo = videoPlayers[nextIndex];
+
+    // Fade out current, fade in next
+    currentVideo.classList.remove('active');
+    nextVideo.classList.add('active');
+
+    currentVideoIndex = nextIndex;
+  };
+
+  // Start video rotation every 5 seconds
+  videoRotationInterval = setInterval(rotateVideos, 5000);
 
   // Handle scroll event
   const handleScroll = () => {
     if (!hasScrolled && (window.scrollY > 50 || document.documentElement.scrollTop > 50)) {
       hasScrolled = true;
+      clearInterval(videoRotationInterval);
       heroVideo.classList.add('hidden');
       body.classList.remove('hero-active');
     }
@@ -1361,6 +1401,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const handleWheel = (e) => {
     if (!hasScrolled && e.deltaY > 0) {
       hasScrolled = true;
+      clearInterval(videoRotationInterval);
       heroVideo.classList.add('hidden');
       body.classList.remove('hero-active');
       // Smooth scroll to content
@@ -1384,6 +1425,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (deltaY > 50) { // Swipe up threshold
         hasScrolled = true;
+        clearInterval(videoRotationInterval);
         heroVideo.classList.add('hidden');
         body.classList.remove('hero-active');
         window.scrollTo({

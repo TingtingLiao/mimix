@@ -33,6 +33,12 @@
     <source src="./src/videos/more_results/aquarium.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay">
+    <div class="video-nav-dots" id="videoNavDots">
+      <div class="video-nav-dot active" data-video="0"></div>
+      <div class="video-nav-dot" data-video="1"></div>
+      <div class="video-nav-dot" data-video="2"></div>
+      <div class="video-nav-dot" data-video="3"></div>
+    </div>
     <div class="scroll-indicator">Scroll Down</div>
   </div>
 </div>
@@ -1361,31 +1367,78 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('heroVideoPlayer3'),
     document.getElementById('heroVideoPlayer4')
   ];
+  const navDots = document.querySelectorAll('.video-nav-dot');
 
   let hasScrolled = false;
   let currentVideoIndex = 0;
   let videoRotationInterval;
+  let isAutoRotating = true;
 
   // Start all videos playing
   videoPlayers.forEach(video => {
     video.play().catch(e => console.log('Video autoplay failed:', e));
   });
 
-  // Rotate videos with crossfade effect
-  const rotateVideos = () => {
+  // Update active dot
+  const updateActiveDot = (index) => {
+    navDots.forEach((dot, i) => {
+      if (i === index) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  };
+
+  // Switch to specific video
+  const switchToVideo = (index) => {
     const currentVideo = videoPlayers[currentVideoIndex];
-    const nextIndex = (currentVideoIndex + 1) % videoPlayers.length;
-    const nextVideo = videoPlayers[nextIndex];
+    const nextVideo = videoPlayers[index];
 
     // Fade out current, fade in next
     currentVideo.classList.remove('active');
     nextVideo.classList.add('active');
 
-    currentVideoIndex = nextIndex;
+    currentVideoIndex = index;
+    updateActiveDot(index);
+  };
+
+  // Rotate videos with crossfade effect
+  const rotateVideos = () => {
+    const nextIndex = (currentVideoIndex + 1) % videoPlayers.length;
+    switchToVideo(nextIndex);
   };
 
   // Start video rotation every 5 seconds
-  videoRotationInterval = setInterval(rotateVideos, 5000);
+  const startAutoRotation = () => {
+    videoRotationInterval = setInterval(rotateVideos, 5000);
+    isAutoRotating = true;
+  };
+
+  const stopAutoRotation = () => {
+    if (videoRotationInterval) {
+      clearInterval(videoRotationInterval);
+      videoRotationInterval = null;
+    }
+    isAutoRotating = false;
+  };
+
+  // Add click handlers to navigation dots
+  navDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      stopAutoRotation();
+      switchToVideo(index);
+      // Resume auto-rotation after 10 seconds of inactivity
+      setTimeout(() => {
+        if (!hasScrolled && !isAutoRotating) {
+          startAutoRotation();
+        }
+      }, 10000);
+    });
+  });
+
+  // Start initial rotation
+  startAutoRotation();
 
   // Handle scroll event
   const handleScroll = () => {

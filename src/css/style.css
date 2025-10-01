@@ -441,7 +441,8 @@ html {
     0 8px 18px rgba(0, 0, 0, 0.04);
 }
 .content {
-  width: 1200px;
+  width: calc(100vw - 80px);
+  max-width: 1400px;
   padding: 50px 50px 40px 50px;
   margin: 20px auto;
   background: #ffffff;
@@ -459,7 +460,8 @@ html {
 
 /* Header content block with fancy styling */
 .header-content {
-  width: 1200px;
+  width: calc(100vw - 80px);
+  max-width: 1400px;
   padding: 50px 50px 40px 50px;
   margin: 20px auto;
   background: rgba(255, 255, 255, 0.92);

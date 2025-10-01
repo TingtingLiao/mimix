@@ -18,6 +18,15 @@
 
 <!-- Author -->
 <body class="hero-active">
+
+<!-- Fullscreen Video Modal -->
+<div class="fullscreen-video-modal" id="fullscreenModal">
+  <button class="fullscreen-close-btn" id="closeFullscreen">×</button>
+  <div class="fullscreen-video-content">
+    <video id="fullscreenVideo" controls autoplay loop></video>
+  </div>
+</div>
+
 <!-- Hero Video Background -->
 <div class="hero-video-container" id="heroVideo">
   <video autoplay muted loop playsinline class="hero-video active" id="heroVideoPlayer1">
@@ -1494,6 +1503,54 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('wheel', handleWheel, { passive: true });
   window.addEventListener('touchstart', handleTouchStart, { passive: true });
   window.addEventListener('touchmove', handleTouchMove, { passive: true });
+
+  // Fullscreen video modal functionality
+  const fullscreenModal = document.getElementById('fullscreenModal');
+  const fullscreenVideo = document.getElementById('fullscreenVideo');
+  const closeFullscreenBtn = document.getElementById('closeFullscreen');
+
+  // Function to open fullscreen video
+  window.openFullscreenVideo = (videoSrc) => {
+    fullscreenVideo.src = videoSrc;
+    fullscreenModal.classList.add('active');
+    fullscreenVideo.play();
+    document.body.style.overflow = 'hidden';
+  };
+
+  // Function to close fullscreen video
+  const closeFullscreenVideo = () => {
+    fullscreenModal.classList.remove('active');
+    fullscreenVideo.pause();
+    fullscreenVideo.src = '';
+    document.body.style.overflow = '';
+  };
+
+  // Close button click
+  closeFullscreenBtn.addEventListener('click', closeFullscreenVideo);
+
+  // Close on background click
+  fullscreenModal.addEventListener('click', (e) => {
+    if (e.target === fullscreenModal) {
+      closeFullscreenVideo();
+    }
+  });
+
+  // Close on ESC key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && fullscreenModal.classList.contains('active')) {
+      closeFullscreenVideo();
+    }
+  });
+
+  // Add click handlers to all videos in More Results section
+  const moreResultsVideos = document.querySelectorAll('.more-results-section .video-wrapper video');
+  moreResultsVideos.forEach(video => {
+    video.parentElement.addEventListener('click', (e) => {
+      e.preventDefault();
+      const videoSrc = video.querySelector('source').src;
+      openFullscreenVideo(videoSrc);
+    });
+  });
 });
 </script>
 

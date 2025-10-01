@@ -159,6 +159,95 @@ body.hero-active {
   overflow: hidden;
 }
 
+/* Fullscreen video modal */
+.fullscreen-video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.fullscreen-video-modal.active {
+  display: flex;
+  opacity: 1;
+}
+
+.fullscreen-video-content {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  max-height: 90vh;
+}
+
+.fullscreen-video-content video {
+  width: 100%;
+  height: auto;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.fullscreen-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10001;
+}
+
+.fullscreen-close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* Make video wrappers clickable */
+.more-results-section .video-wrapper {
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.more-results-section .video-wrapper:hover {
+  transform: scale(1.02);
+}
+
+.more-results-section .video-wrapper::after {
+  content: '⛶';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.more-results-section .video-wrapper:hover::after {
+  opacity: 0.8;
+}
+
 /* Add subtle animated background shapes - removed */
 body::before {
   display: none;

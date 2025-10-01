@@ -57,8 +57,7 @@
 
   <!-- Professional subtitle -->
   <p class="modern-subtitle">
-    <span style="color: #4A5568;"> </span>Character <span style="color: #2D3748;"> </span>Mixing
-    <span style="color: #1A365D;"> </span>for <span style="color: #22543D;"> </span>Video <span style="color: #2B6CB0;"> </span>Generation
+    Character Mixing for Video Generation
   </p>
 
   <!-- Conference -->
@@ -96,16 +95,16 @@
   <!-- Modern buttons section -->
   <div class="buttons-modern">
     <a target="_blank" href="#" class="button-modern button-paper">
-      <img src="./src/img/th.png" alt="arXiv" class="button-icon arxiv-icon" style="width: 20px; height: 20px;">
-      <span>arXiv Paper</span>
+      <img src="./src/img/th.png" alt="arXiv" class="button-icon arxiv-icon" style="width: 20px; height:15px;">
+      <span>arXiv</span>
     </a>
     <a target="_blank" href="#" class="button-modern button-code">
       <img src="./src/img/github.png" alt="GitHub" class="button-icon" style="width: 20px; height: 20px;">
-      <span>Source Code</span>
+      <span>Code</span>
     </a>
     <a href="#" target="_blank" class="button-modern button-video">
       <img src="./src/img/youtube.png" alt="YouTube" class="button-icon" style="width: 20px; height: 20px;">
-      <span>Supplementary</span>
+      <span>Video</span>
     </a>
   </div>
 
@@ -114,42 +113,44 @@
 <!------------- Abstract ------------------>
 
 <div class="content">
-  <h2 style="text-align:center"><strong>Abstract</strong></h2>
-  Imagine Mr. Bean stepping into the cartoon Tom and Jerry—can we generate videos where our favorite characters interact naturally in new contexts?
-  Motivated by this question, we study inter-character interaction in text-to-video generation, aiming to synthesize natural interactions while preserving individual identity and behaviors.
-  This task introduces two main challenges. 
-  First, the characters may have <strong>never coexisted</strong>, making it difficult to generate faithful and coherent interactions. 
-  Second, combining different styled characters often leads to undesirable style shifts—for example, realistic characters appearing cartoonish—a failure mode we refer to as <strong>style delusion</strong>. This phenomenon arises because training videos typically belong to a single, homogeneous style. 
-  To address these challenges, we study how disentangling character identity and visual style influences the quality of character mixing and interaction synthesis in generated videos.
-  For character disentanglement, we examine how captioning strategies affect the model’s ability to learn and ground each character as a distinct concept.
-  For style disentanglement, we introduce augmented data and  analyze how varying their amount impacts the mitigation of style delusion, while ensuring that overall video quality is not degraded.  
-  Extensive experiments demonstrate that our method outperforms state-of-the-art approaches across multiple aspects, including identity preservation, personalized motion preservation, style preservation, interaction plausibility, and video quality.
+  <h2 style="text-align:center; color: white; background: none !important; -webkit-text-fill-color: white !important; font-size: 45px;">Motivation</h2>
+  <div style="max-width: 1600px; margin: 0 auto;">
+    <p style="color: white; font-size: 19px;">
+    Imagine Mr. Bean stepping into the cartoon Tom and Jerry—can we generate videos where our favorite characters interact naturally in new contexts?
+    Motivated by this question, we study inter-character interaction in text-to-video generation, aiming to synthesize natural interactions while preserving individual identity and behaviors.
+    This task introduces two main challenges.
+    First, the characters may have <strong style="color: #ff2f2f;">never coexisted</strong>, making it difficult to generate faithful and coherent interactions.
+    Second, combining different styled characters often leads to undesirable style shifts—for example, realistic characters appearing cartoonish—a failure mode we refer to as <strong style="color: #ee4343;">style delusion</strong>. This phenomenon arises because training videos typically belong to a single, homogeneous style.
+    
+    </p>
+  </div>
 
   <div style="margin: 30px auto; max-width: 1200px;">
-    <h4 style="text-align: center; color: #667eea; margin-bottom: 20px;">Style Delusion Examples</h4>
+     
     <div style="display: flex; gap: 20px; justify-content: center;">
       <div class="video-wrapper" style="flex: 1; max-width: 500px;">
         <video autoplay muted loop controls style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
           <source src="./src/videos/style_delusion_examples/Mr._Bean_sits_on_the_couch._Jerry_peeks_from_a_cus.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <p style="text-align: center; margin-top: 10px; color: #666; font-size: 0.9rem;">Mr. Bean appears cartoonish.</p>
+        <p style="text-align: center; margin-top: 10px; color: white; font-size: 0.9rem;">Mr. Bean appears cartoonish.</p>
       </div>
       <div class="video-wrapper" style="flex: 1; max-width: 500px;">
         <video autoplay muted loop controls style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
           <source src="./src/videos/style_delusion_examples/Mr._Bean_tries_to_secretly_pra.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <p style="text-align: center; margin-top: 10px; color: #666; font-size: 0.9rem;">Ice Bear appears realistic</p>
+        <p style="text-align: center; margin-top: 10px; color: white; font-size: 0.9rem;">Ice Bear appears realistic</p>
       </div>
     </div>
+    <h5 style="text-align: center; color: #f7f7f7; margin-bottom: 20px;">Style Delusion Examples</h4>
   </div>
 </div>
 
 
 <!------------- Method Overview ------------------>
 <!-- <div class="content">
-  <h2 style="text-align:center"><strong>Method Overview</strong></h2>
+  <h2 style="text-align:center; color: white; background: none !important; -webkit-text-fill-color: white !important; font-size: 45px;"><strong>Method Overview</strong></h2>
   <img src="./src/img/method_pipeline.png" alt="Method Pipeline" style="display: block; margin: 0 auto; width: 100%; max-width: 800px;">
   <p style="text-align: center; margin-top: 15px; font-style: italic; color: #666;">
     ss
@@ -158,7 +159,7 @@
 <style>
   .multi-char-section, .single-char-section, .more-results-section {
     /* Removed gradient background to keep pure white from .content class */
-    padding: 60px 0;
+    padding: 20px 0;
     position: relative;
     overflow: hidden;
   }
@@ -169,14 +170,11 @@
   }
 
   .fancy-title {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 800;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: white;
     text-align: center;
     margin-bottom: 1rem;
-    animation: glow 3s ease-in-out infinite;
   }
 
   @keyframes glow {
@@ -231,12 +229,39 @@
     padding: 0 20px;
   }
 
+  .single-char-section .video-carousel {
+    max-width: 1800px;
+  }
+
+  .single-char-section .video-wrapper video {
+    max-height: none;
+    object-fit: cover;
+  }
+
+  .multi-char-section .video-carousel {
+    max-width: 1800px;
+  }
+
+  .multi-char-section .video-wrapper video {
+    max-height: none;
+    object-fit: cover;
+  }
+
+  .more-results-section .video-carousel {
+    max-width: 1800px;
+  }
+
+  .more-results-section .video-wrapper video {
+    max-height: none;
+    object-fit: cover;
+  }
+
   .carousel-container {
     position: relative;
-    background: white;
+    background: transparent;
     border-radius: 20px;
     padding: 20px 20px 10px 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: none;
     overflow: hidden;
   }
 
@@ -302,19 +327,19 @@
 
   .comparison-indicator {
     position: absolute;
-    top: 15px;
+    top: 10px;
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 10px;
     pointer-events: none;
     z-index: 10;
   }
 
   .indicator-badge {
-    padding: 6px 15px;
+    padding: 4px 12px;
     border-radius: 20px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
     backdrop-filter: blur(10px);
   }
@@ -326,8 +351,8 @@
     animation: gradient-shift 3s ease infinite, glow-pulse 2s ease-in-out infinite;
     color: white !important;
     font-weight: 700 !important;
-    font-size: 0.9rem !important;
-    padding: 8px 18px !important;
+    font-size: 0.8rem !important;
+    padding: 4px 12px 4px 24px !important;
     box-shadow:
       0 0 20px rgba(76, 175, 80, 0.6),
       0 0 40px rgba(76, 175, 80, 0.3),
@@ -335,18 +360,18 @@
     border: 2px solid rgba(255, 255, 255, 0.5) !important;
     position: relative;
     overflow: hidden;
-    transform: scale(1.1);
+    transform: scale(1);
     z-index: 10;
   }
 
   .indicator-ours::before {
     content: '⭐';
     position: absolute;
-    left: 5px;
+    left: 8px;
     top: 50%;
     transform: translateY(-50%);
     animation: star-spin 3s linear infinite;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
   .indicator-ours::after {
@@ -463,10 +488,11 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+    height: 0px;
+    background: transparent;
     transition: width 8s linear;
     width: 0;
+    display: none;
   }
 
   .carousel-progress.active {
@@ -491,11 +517,12 @@
 </style>
 
 <div class="content multi-char-section">
-  <h2 class="fancy-title">Multi-character Comparison</h2>
-
-  <p style="text-align:center; font-size: 1.1rem; color: #4a5568; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+  <h2 class="fancy-title" style="color: white; background: none !important; -webkit-text-fill-color: white !important; font-size: 45px;">Multi-Character Comparison</h2>
+  
+<!-- 
+  <p style="text-align:center; font-size: 1.1rem; color: white; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
     Experience the power of character mixing as diverse personalities interact naturally in unprecedented scenarios
-  </p>
+  </p> -->
 
   <!-- <div class="method-badges">
     <div class="method-badge method-baseline"> 
@@ -506,12 +533,12 @@
     </div>
   </div> -->
 
-  <div class="video-carousel">
+  <div class="video-carousel" style="margin: 0 auto;">
     <div class="carousel-container">
       <div class="carousel-progress" id="multiCharProgress"></div>
       <div class="carousel-slides" id="multiCharSlides">
         <!-- Slide 1 -->
-        <div class="carousel-slide active"> 
+        <div class="carousel-slide active">
           <div class="video-wrapper">
             <div class="comparison-indicator">
               <span class="indicator-badge indicator-left">Skyreel-A2</span>
@@ -525,84 +552,84 @@
         </div>
 
         <!-- Slide 2 -->
-        <div class="carousel-slide"> 
+        <div class="carousel-slide">
           <div class="video-wrapper">
             <div class="comparison-indicator">
               <span class="indicator-badge indicator-left">Skyreel-A2</span>
               <span class="indicator-badge indicator-right indicator-ours">Ours</span>
             </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/multi_comparison/pair_2_fishing_comparison.mp4" type="video/mp4">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/multi_comparison/pair_2_fishing_comparison.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
         </div>
 
         <!-- Slide 3 -->
-        <div class="carousel-slide"> 
+        <div class="carousel-slide">
           <div class="video-wrapper">
             <div class="comparison-indicator">
               <span class="indicator-badge indicator-left">Skyreel-A2</span>
               <span class="indicator-badge indicator-right indicator-ours">Ours</span>
             </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/multi_comparison/pair_3_bakery_comparison.mp4" type="video/mp4">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/multi_comparison/pair_3_bakery_comparison.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
         </div>
 
         <!-- Slide 4 -->
-        <div class="carousel-slide"> 
+        <div class="carousel-slide">
           <div class="video-wrapper">
             <div class="comparison-indicator">
               <span class="indicator-badge indicator-left">Skyreel-A2</span>
               <span class="indicator-badge indicator-right indicator-ours">Ours</span>
             </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/multi_comparison/pair_4_tea_party_comparison.mp4" type="video/mp4">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/multi_comparison/pair_4_tea_party_comparison.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
         </div>
 
         <!-- Slide 5 -->
-        <div class="carousel-slide"> 
+        <div class="carousel-slide">
           <div class="video-wrapper">
             <div class="comparison-indicator">
               <span class="indicator-badge indicator-left">Skyreel-A2</span>
               <span class="indicator-badge indicator-right indicator-ours">Ours</span>
             </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/multi_comparison/pair_5_aquarium_comparison.mp4" type="video/mp4">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/multi_comparison/pair_5_aquarium_comparison.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
         </div>
 
         <!-- Slide 6 -->
-        <div class="carousel-slide"> 
+        <div class="carousel-slide">
           <div class="video-wrapper">
             <div class="comparison-indicator">
               <span class="indicator-badge indicator-left">Skyreel-A2</span>
               <span class="indicator-badge indicator-right indicator-ours">Ours</span>
             </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/multi_comparison/pair_6_tech_startup_comparison.mp4" type="video/mp4">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/multi_comparison/pair_6_tech_startup_comparison.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
         </div>
 
         <!-- Slide 7 -->
-        <div class="carousel-slide"> 
+        <div class="carousel-slide">
           <div class="video-wrapper">
             <div class="comparison-indicator">
               <span class="indicator-badge indicator-left">Skyreel-A2</span>
               <span class="indicator-badge indicator-right indicator-ours">Ours</span>
             </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/multi_comparison/pair_7_mall_security_comparison.mp4" type="video/mp4">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/multi_comparison/pair_7_mall_security_comparison.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -766,13 +793,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <!------------- Single Character Results ------------------>
 <div class="content single-char-section">
-  <h2 class="fancy-title">Single-character Comparison</h2>
+  <h2 class="fancy-title" style="color: white; background: none !important; -webkit-text-fill-color: white !important; font-size: 45px;">Single-character Comparison</h2>
 
-  <p style="text-align:center; font-size: 1.1rem; color: #4a5568; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+  <!-- <p style="text-align:center; font-size: 1.1rem; color: white; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
     Comparing our method against state-of-the-art approaches in single-character video generation
-  </p>
+  </p> -->
 
-  <div class="video-carousel">
+  <div class="video-carousel" style="margin: 0 auto;">
     <div class="carousel-container">
       <div class="carousel-progress" id="singleCharProgress"></div>
       <div class="carousel-slides" id="singleCharSlides">
@@ -807,8 +834,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="indicator-badge indicator-ours">Ours</span>
               <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
             </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_04_grid.mp4" type="video/mp4">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/single_comparison/example_04_grid.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -826,8 +853,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="indicator-badge indicator-ours">Ours</span>
               <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
             </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example1_grid.mp4" type="video/mp4">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/single_comparison/example1_grid.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -845,8 +872,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="indicator-badge indicator-ours">Ours</span>
               <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
             </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_14_grid.mp4" type="video/mp4">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/single_comparison/example_14_grid.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -864,8 +891,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="indicator-badge indicator-ours">Ours</span>
               <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
             </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_10_grid.mp4" type="video/mp4">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/single_comparison/example_10_grid.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -883,8 +910,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="indicator-badge indicator-ours">Ours</span>
               <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
             </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_20_grid.mp4" type="video/mp4">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/single_comparison/example_20_grid.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -902,8 +929,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="indicator-badge indicator-ours">Ours</span>
               <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
             </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_21_grid.mp4" type="video/mp4">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/single_comparison/example_21_grid.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -921,8 +948,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="indicator-badge indicator-ours">Ours</span>
               <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
             </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_22_grid.mp4" type="video/mp4">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/single_comparison/example_22_grid.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -940,8 +967,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="indicator-badge indicator-ours">Ours</span>
               <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
             </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_25_grid.mp4" type="video/mp4">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/single_comparison/example_25_grid.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -959,8 +986,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="indicator-badge indicator-ours">Ours</span>
               <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
             </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_28_grid.mp4" type="video/mp4">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/single_comparison/example_28_grid.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -978,8 +1005,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="indicator-badge indicator-ours">Ours</span>
               <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
             </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example2_grid.mp4" type="video/mp4">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/single_comparison/example2_grid.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -997,8 +1024,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="indicator-badge indicator-ours">Ours</span>
               <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
             </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_30_grid.mp4" type="video/mp4">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/single_comparison/example_30_grid.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -1016,8 +1043,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="indicator-badge indicator-ours">Ours</span>
               <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
             </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_31_grid.mp4" type="video/mp4">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/single_comparison/example_31_grid.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -1035,8 +1062,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="indicator-badge indicator-ours">Ours</span>
               <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
             </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_george1_grid.mp4" type="video/mp4">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/single_comparison/example_george1_grid.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -1054,8 +1081,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="indicator-badge indicator-ours">Ours</span>
               <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
             </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_george2_grid.mp4" type="video/mp4">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/single_comparison/example_george2_grid.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -1073,8 +1100,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="indicator-badge indicator-ours">Ours</span>
               <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
             </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_penny1_grid.mp4" type="video/mp4">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/single_comparison/example_penny1_grid.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -1092,8 +1119,8 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="indicator-badge indicator-ours">Ours</span>
               <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
             </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_penny2_grid.mp4" type="video/mp4">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/single_comparison/example_penny2_grid.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -1131,193 +1158,194 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <!------------- More Results ------------------>
 <div class="content more-results-section">
-  <h2 class="fancy-title">More Results</h2>
+  <h2 class="fancy-title" style="color: white; background: none !important; -webkit-text-fill-color: white !important; font-size: 45px;">More Results</h2>
 
-  <p style="text-align:center; font-size: 1.1rem; color: #4a5568; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+  <!-- <p style="text-align:center; font-size: 1.1rem; color: white; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
     Additional examples showcasing diverse character interactions and scenarios
-  </p>
+  </p> -->
 
   <div class="video-carousel" style="max-width: 1600px; margin: 0 auto;">
     <div class="carousel-container">
       <div class="carousel-progress" id="moreResultsProgress"></div>
       <div class="carousel-slides" id="moreResultsSlides">
-        <!-- Slide 1 - 2 videos -->
+        <!-- Slide 1 -->
         <div class="carousel-slide active">
-          <div style="display: flex; gap: 20px; justify-content: center;">
-            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
-              <video autoplay muted loop controls style="width: 100%; height: auto;">
-                <source src="./src/videos/more_results/01.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
-              <video autoplay muted loop controls style="width: 100%; height: auto;">
-                <source src="./src/videos/more_results/02.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
+          <div class="video-wrapper">
+            <video autoplay muted loop controls style="width: 100%; height: auto;">
+              <source src="./src/videos/more_results/01.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
-
-        <!-- Slide 2 - 2 videos -->
+        <!-- Slide 2 -->
         <div class="carousel-slide">
-          <div style="display: flex; gap: 20px; justify-content: center;">
-            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
-              <video muted loop controls style="width: 100%; height: auto;">
-                <source src="./src/videos/more_results/03.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
-              <video muted loop controls style="width: 100%; height: auto;">
-                <source src="./src/videos/more_results/04.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
+          <div class="video-wrapper">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/more_results/02.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
-
-        <!-- Slide 3 - 2 videos -->
+        <!-- Slide 3 -->
         <div class="carousel-slide">
-          <div style="display: flex; gap: 20px; justify-content: center;">
-            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
-              <video muted loop controls style="width: 100%; height: auto;">
-                <source src="./src/videos/more_results/05.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
-              <video muted loop controls style="width: 100%; height: auto;">
-                <source src="./src/videos/more_results/06.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
+          <div class="video-wrapper">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/more_results/03.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
-
-        <!-- Slide 4 - 2 videos -->
+        <!-- Slide 4 -->
         <div class="carousel-slide">
-          <div style="display: flex; gap: 20px; justify-content: center;">
-            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
-              <video muted loop controls style="width: 100%; height: auto;">
-                <source src="./src/videos/more_results/07.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
-              <video muted loop controls style="width: 100%; height: auto;">
-                <source src="./src/videos/more_results/08.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
+          <div class="video-wrapper">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/more_results/04.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
-
-        <!-- Slide 5 - 2 videos -->
+        <!-- Slide 5 -->
         <div class="carousel-slide">
-          <div style="display: flex; gap: 20px; justify-content: center;">
-            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
-              <video muted loop controls style="width: 100%; height: auto;">
-                <source src="./src/videos/more_results/09.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
-              <video muted loop controls style="width: 100%; height: auto;">
-                <source src="./src/videos/more_results/10.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
+          <div class="video-wrapper">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/more_results/05.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
-
-        <!-- Slide 6 - 2 videos -->
+        <!-- Slide 6 -->
         <div class="carousel-slide">
-          <div style="display: flex; gap: 20px; justify-content: center;">
-            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
-              <video muted loop controls style="width: 100%; height: auto;">
-                <source src="./src/videos/more_results/11.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
-              <video muted loop controls style="width: 100%; height: auto;">
-                <source src="./src/videos/more_results/12.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
+          <div class="video-wrapper">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/more_results/06.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
-
-        <!-- Slide 7 - 2 videos -->
+        <!-- Slide 7 -->
         <div class="carousel-slide">
-          <div style="display: flex; gap: 20px; justify-content: center;">
-            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
-              <video muted loop controls style="width: 100%; height: auto;">
-                <source src="./src/videos/more_results/13.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
-              <video muted loop controls style="width: 100%; height: auto;">
-                <source src="./src/videos/more_results/14.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
+          <div class="video-wrapper">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/more_results/07.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
-
-        <!-- Slide 8 - 2 videos -->
+        <!-- Slide 8 -->
         <div class="carousel-slide">
-          <div style="display: flex; gap: 20px; justify-content: center;">
-            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
-              <video muted loop controls style="width: 100%; height: auto;">
-                <source src="./src/videos/more_results/15.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
-              <video muted loop controls style="width: 100%; height: auto;">
-                <source src="./src/videos/more_results/16.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
+          <div class="video-wrapper">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/more_results/08.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
-
-        <!-- Slide 9 - 2 videos -->
+        <!-- Slide 9 -->
         <div class="carousel-slide">
-          <div style="display: flex; gap: 20px; justify-content: center;">
-            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
-              <video muted loop controls style="width: 100%; height: auto;">
-                <source src="./src/videos/more_results/17.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
-              <video muted loop controls style="width: 100%; height: auto;">
-                <source src="./src/videos/more_results/18.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
+          <div class="video-wrapper">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/more_results/09.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
-
-        <!-- Slide 10 - 2 videos -->
+        <!-- Slide 10 -->
         <div class="carousel-slide">
-          <div style="display: flex; gap: 20px; justify-content: center;">
-            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
-              <video muted loop controls style="width: 100%; height: auto;">
-                <source src="./src/videos/more_results/19.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div class="video-wrapper" style="flex: 1; max-width: 700px;">
-              <video muted loop controls style="width: 100%; height: auto;">
-                <source src="./src/videos/more_results/20.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
+          <div class="video-wrapper">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/more_results/10.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <!-- Slide 11 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/more_results/11.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <!-- Slide 12 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/more_results/12.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <!-- Slide 13 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/more_results/13.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <!-- Slide 14 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/more_results/14.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <!-- Slide 15 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/more_results/15.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <!-- Slide 16 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/more_results/16.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <!-- Slide 17 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/more_results/17.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <!-- Slide 18 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/more_results/18.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <!-- Slide 19 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/more_results/19.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <!-- Slide 20 -->
+        <div class="carousel-slide">
+          <div class="video-wrapper">
+            <video muted loop controls style="width: 100%; height: auto;" preload="none" data-lazy="true">
+              <source data-src="./src/videos/more_results/20.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </div>
@@ -1336,6 +1364,16 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="carousel-dot" onclick="goToSlide('moreResults', 7)"></span>
           <span class="carousel-dot" onclick="goToSlide('moreResults', 8)"></span>
           <span class="carousel-dot" onclick="goToSlide('moreResults', 9)"></span>
+          <span class="carousel-dot" onclick="goToSlide('moreResults', 10)"></span>
+          <span class="carousel-dot" onclick="goToSlide('moreResults', 11)"></span>
+          <span class="carousel-dot" onclick="goToSlide('moreResults', 12)"></span>
+          <span class="carousel-dot" onclick="goToSlide('moreResults', 13)"></span>
+          <span class="carousel-dot" onclick="goToSlide('moreResults', 14)"></span>
+          <span class="carousel-dot" onclick="goToSlide('moreResults', 15)"></span>
+          <span class="carousel-dot" onclick="goToSlide('moreResults', 16)"></span>
+          <span class="carousel-dot" onclick="goToSlide('moreResults', 17)"></span>
+          <span class="carousel-dot" onclick="goToSlide('moreResults', 18)"></span>
+          <span class="carousel-dot" onclick="goToSlide('moreResults', 19)"></span>
         </div>
         <button class="carousel-btn" onclick="nextSlide('moreResults')">›</button>
       </div>
@@ -1347,9 +1385,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <!------------- Citation ------------------>
 <div class="content">
-  <h2 style="text-align:center"><strong>Citation</strong></h2>
-  <div style="background-color: #f8f9fa; padding: 20px; border-radius: 10px; border-left: 4px solid #667eea; margin: 20px 0;">
-    <pre style="background: none; padding: 0; margin: 0; font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace; font-size: 14px; color: #2d3748;">@article{mimix2025,
+  <h2 style="text-align:center; color: white; background: none !important; -webkit-text-fill-color: white !important; font-size: 45px;">Citation</h2>
+  <div style="background-color: #000000; padding: 20px; border-radius: 10px; border-left: 4px solid #667eea; margin: 20px 0;">
+    <pre style="background: none; padding: 0; margin: 0; font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace; font-size: 14px; color: white;">@article{mimix2025,
   title={Mimix: Character Mixing for Video Generation},
   author={Tingting Liao, Chongjian Ge, Guangyi Liu, Hao Li, Yi Zhou},
   journal={},
@@ -1496,6 +1534,31 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('wheel', handleWheel, { passive: true });
   window.addEventListener('touchstart', handleTouchStart, { passive: true });
   window.addEventListener('touchmove', handleTouchMove, { passive: true });
+
+  // Lazy load videos using Intersection Observer
+  const lazyVideos = document.querySelectorAll('video[data-lazy="true"]');
+
+  const videoObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const video = entry.target;
+        const source = video.querySelector('source');
+
+        if (source && source.dataset.src) {
+          source.src = source.dataset.src;
+          video.load();
+          video.removeAttribute('data-lazy');
+          observer.unobserve(video);
+        }
+      }
+    });
+  }, {
+    rootMargin: '200px' // Start loading 200px before video comes into view
+  });
+
+  lazyVideos.forEach(video => {
+    videoObserver.observe(video);
+  });
 
 });
 </script>

@@ -17,13 +17,15 @@
 </head>
 
 <!-- Author -->
-<body>
+<body class="hero-active">
 <!-- Hero Video Background -->
-<div class="hero-video-container">
+<div class="hero-video-container" id="heroVideo">
   <video autoplay muted loop playsinline class="hero-video">
     <source src="./src/videos/more_results/08.mp4" type="video/mp4">
   </video>
-  <div class="hero-overlay"></div>
+  <div class="hero-overlay">
+    <div class="scroll-indicator">Scroll Down</div>
+  </div>
 </div>
 
 <div class="header-content">
@@ -1339,8 +1341,66 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
 </div>
 
- 
- 
+<script>
+// Hero video scroll behavior
+document.addEventListener('DOMContentLoaded', () => {
+  const heroVideo = document.getElementById('heroVideo');
+  const body = document.body;
+  let hasScrolled = false;
+
+  // Handle scroll event
+  const handleScroll = () => {
+    if (!hasScrolled && (window.scrollY > 50 || document.documentElement.scrollTop > 50)) {
+      hasScrolled = true;
+      heroVideo.classList.add('hidden');
+      body.classList.remove('hero-active');
+    }
+  };
+
+  // Handle wheel event
+  const handleWheel = (e) => {
+    if (!hasScrolled && e.deltaY > 0) {
+      hasScrolled = true;
+      heroVideo.classList.add('hidden');
+      body.classList.remove('hero-active');
+      // Smooth scroll to content
+      window.scrollTo({
+        top: 100,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Handle touch events for mobile
+  let touchStartY = 0;
+  const handleTouchStart = (e) => {
+    touchStartY = e.touches[0].clientY;
+  };
+
+  const handleTouchMove = (e) => {
+    if (!hasScrolled) {
+      const touchEndY = e.touches[0].clientY;
+      const deltaY = touchStartY - touchEndY;
+
+      if (deltaY > 50) { // Swipe up threshold
+        hasScrolled = true;
+        heroVideo.classList.add('hidden');
+        body.classList.remove('hero-active');
+        window.scrollTo({
+          top: 100,
+          behavior: 'smooth'
+        });
+      }
+    }
+  };
+
+  // Add event listeners
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  window.addEventListener('wheel', handleWheel, { passive: true });
+  window.addEventListener('touchstart', handleTouchStart, { passive: true });
+  window.addEventListener('touchmove', handleTouchMove, { passive: true });
+});
+</script>
 
 </body>
 </html>

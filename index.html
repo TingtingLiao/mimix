@@ -1609,13 +1609,20 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Click on More Results section to open gallery
-  moreResultsSection.addEventListener('click', (e) => {
-    // Don't open if clicking on carousel controls
-    if (e.target.closest('.carousel-btn') || e.target.closest('.carousel-dot')) {
-      return;
-    }
-    openFullscreenGallery();
-  });
+  if (moreResultsSection) {
+    moreResultsSection.addEventListener('click', (e) => {
+      console.log('Click detected on more results section');
+      // Don't open if clicking on carousel controls
+      if (e.target.closest('.carousel-btn') || e.target.closest('.carousel-dot')) {
+        console.log('Ignoring click on carousel controls');
+        return;
+      }
+      console.log('Opening fullscreen gallery');
+      openFullscreenGallery();
+    });
+  } else {
+    console.error('More Results section not found');
+  }
 
   // Close button click
   closeFullscreenBtn.addEventListener('click', closeFullscreenGallery);

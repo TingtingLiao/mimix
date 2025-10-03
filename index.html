@@ -1720,6 +1720,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentIntroBgIndex = 0;
 
+  // Track playback counts for each video
+  const videoPlayCounts = [0, 0, 0, 0, 0];
+  const videoNames = ['Video 1 (aquarium)', 'Video 2 (04.mp4)', 'Video 3 (20.mp4)', 'Video 4 (09.mp4)', 'Video 5 (08.mp4)'];
+
+  // Display playback stats in console
+  const displayPlaybackStats = () => {
+    console.clear();
+    console.log('=== Background Video Playback Stats ===');
+    console.log('Each video plays for 5 seconds before switching');
+    console.log('----------------------------------------');
+    videoPlayCounts.forEach((count, index) => {
+      const totalTime = count * 5;
+      const minutes = Math.floor(totalTime / 60);
+      const seconds = totalTime % 60;
+      console.log(`${videoNames[index]}: ${count} times (${minutes}m ${seconds}s total)`);
+    });
+    console.log('----------------------------------------');
+    const totalPlays = videoPlayCounts.reduce((a, b) => a + b, 0);
+    const totalTime = totalPlays * 5;
+    const totalMinutes = Math.floor(totalTime / 60);
+    const totalSeconds = totalTime % 60;
+    console.log(`Total rotations: ${totalPlays} (${totalMinutes}m ${totalSeconds}s)`);
+    console.log(`Currently showing: ${videoNames[currentIntroBgIndex]}`);
+  };
+
   // Start all intro background videos playing
   introBgVideos.forEach((video, index) => {
     if (video) {
@@ -1727,6 +1752,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Set initial opacity
       if (index === 0) {
         video.style.opacity = '1';
+        videoPlayCounts[0] = 1; // Count initial play
+        displayPlaybackStats();
       } else {
         video.style.opacity = '0';
       }
@@ -1747,11 +1774,16 @@ document.addEventListener('DOMContentLoaded', () => {
       nextVideo.style.opacity = '1';
 
       currentIntroBgIndex = nextIndex;
+      videoPlayCounts[nextIndex]++; // Increment play count
+      displayPlaybackStats(); // Show updated stats
     }
   };
 
-  // Rotate intro background videos every 8 seconds
-  setInterval(switchIntroBgVideo, 8000);
+  // Rotate intro background videos every 5 seconds
+  setInterval(switchIntroBgVideo, 5000);
+
+  // Also add a way to check stats on demand
+  window.checkVideoStats = displayPlaybackStats;
 
   // Add scroll-based darkening effect
   const introVideoContainer = document.querySelector('.intro-video-container');

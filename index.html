@@ -20,32 +20,29 @@
 <body class="hero-active">
 
 
-<!-- Hero Video Background -->
-<div class="hero-video-container" id="heroVideo">
-  <video autoplay muted loop playsinline class="hero-video active" id="heroVideoPlayer1">
+<!-- Hero Video Background removed -->
+
+<div class="header-content" style="position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; overflow: hidden; margin: 0; padding: 0; width: 100vw; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%); border-radius: 0; box-shadow: none;">
+  <!-- Background videos for the header (rotating) -->
+  <video autoplay muted loop playsinline class="intro-bg-video" id="introBgVideo5" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: -3; opacity: 0; transition: opacity 1s ease; filter: brightness(1.2);">
+    <source src="./src/videos/multi_comparison/pair_5_aquarium/ours.mp4" type="video/mp4">
+  </video>
+  <video autoplay muted loop playsinline class="intro-bg-video active" id="introBgVideo1" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: -2; opacity: 1; transition: opacity 1s ease; filter: brightness(1.2);">
+    <source src="./src/videos/more_results/20.mp4" type="video/mp4">
+  </video>
+  <video autoplay muted loop playsinline class="intro-bg-video" id="introBgVideo2" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: -3; opacity: 0; transition: opacity 1s ease; filter: brightness(1.2);">
     <source src="./src/videos/more_results/09.mp4" type="video/mp4">
   </video>
-  <video autoplay muted loop playsinline class="hero-video" id="heroVideoPlayer2">
+  <video autoplay muted loop playsinline class="intro-bg-video" id="introBgVideo3" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: -3; opacity: 0; transition: opacity 1s ease; filter: brightness(1.2);">
     <source src="./src/videos/more_results/04.mp4" type="video/mp4">
   </video>
-  <video autoplay muted loop playsinline class="hero-video" id="heroVideoPlayer3">
+  <video autoplay muted loop playsinline class="intro-bg-video" id="introBgVideo4" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: -3; opacity: 0; transition: opacity 1s ease; filter: brightness(1.2);">
     <source src="./src/videos/more_results/08.mp4" type="video/mp4">
   </video>
-  <video autoplay muted loop playsinline class="hero-video" id="heroVideoPlayer4">
-    <source src="./src/videos/more_results/aquarium.mp4" type="video/mp4">
-  </video>
-  <div class="hero-overlay">
-    <div class="video-nav-dots" id="videoNavDots">
-      <div class="video-nav-dot active" data-video="0"></div>
-      <div class="video-nav-dot" data-video="1"></div>
-      <div class="video-nav-dot" data-video="2"></div>
-      <div class="video-nav-dot" data-video="3"></div>
-    </div>
-    <div class="scroll-indicator">Scroll Down</div>
-  </div>
-</div>
 
-<div class="header-content">
+  <!-- Light overlay for better text visibility -->
+  <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.2) 100%); z-index: -1;"></div>
+
   <!-- Decorative elements -->
   <div class="header-decoration top-left"></div>
   <div class="header-decoration bottom-right"></div>
@@ -115,8 +112,8 @@
 <div class="content">
   <h2 style="text-align:center; color: white; background: none !important; -webkit-text-fill-color: white !important; font-size: 48px; margin-bottom: 50px; font-weight: 700; letter-spacing: 2px;">🎯 Abstract</h2>
 
-  <!-- Main Question Box -->
-  <div style="max-width: 1400px; margin: 0 auto 40px; position: relative;">
+    <!-- Main Question Box -->
+    <div style="max-width: 1400px; margin: 0 auto 40px; position: relative;">
     <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 3px; border-radius: 25px; box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);">
       <div style="background: #0a0a0a; border-radius: 22px; padding: 40px; text-align: center; position: relative; overflow: hidden;">
         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1), transparent 50%), radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.1), transparent 50%); pointer-events: none;"></div>
@@ -135,7 +132,7 @@
         </p>
        
      
-      <div style="margin: 30px auto; max-width: 1200px;"> 
+      <div style="margin: 30px auto; max-width: 1200px; position: relative;">
         <div style="display: flex; gap: 20px; justify-content: center;">
           <div class="video-wrapper" style="flex: 1; max-width: 500px;">
             <video autoplay muted loop controls style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
@@ -152,13 +149,12 @@
             <p style="text-align: center; margin-top: 10px; color: white; font-size: 0.9rem;">Ice Bear appears realistic</p>
           </div>
         </div>
-        <h5 style="text-align: center; color: #f7f7f7; margin-bottom: 20px;">Style Delusion Examples</h4>
+        <h5 style="text-align: center; color: #f7f7f7; margin-bottom: 20px;">Style Delusion Examples</h5>
       </div>
     </div>
 
   </div>
 </div>
-  <!-- </div> -->
 
 
 
@@ -1708,144 +1704,52 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 
 <script>
-// Hero video scroll behavior with rotation
+// Hero video code removed - hero videos are no longer displayed
+
+// Intro background video rotation
 document.addEventListener('DOMContentLoaded', () => {
-  const heroVideo = document.getElementById('heroVideo');
-  const body = document.body;
-  const videoPlayers = [
-    document.getElementById('heroVideoPlayer1'),
-    document.getElementById('heroVideoPlayer2'),
-    document.getElementById('heroVideoPlayer3'),
-    document.getElementById('heroVideoPlayer4')
+  const introBgVideos = [
+    document.getElementById('introBgVideo1'),
+    document.getElementById('introBgVideo2'),
+    document.getElementById('introBgVideo3'),
+    document.getElementById('introBgVideo4'),
+    document.getElementById('introBgVideo5')
   ];
-  const navDots = document.querySelectorAll('.video-nav-dot');
 
-  let hasScrolled = false;
-  let currentVideoIndex = 0;
-  let videoRotationInterval;
-  let isAutoRotating = true;
+  let currentIntroBgIndex = 0;
 
-  // Start all videos playing
-  videoPlayers.forEach(video => {
-    video.play().catch(e => console.log('Video autoplay failed:', e));
-  });
-
-  // Update active dot
-  const updateActiveDot = (index) => {
-    navDots.forEach((dot, i) => {
-      if (i === index) {
-        dot.classList.add('active');
+  // Start all intro background videos playing
+  introBgVideos.forEach((video, index) => {
+    if (video) {
+      video.play().catch(e => console.log('Intro bg video autoplay failed:', e));
+      // Set initial opacity
+      if (index === 0) {
+        video.style.opacity = '1';
       } else {
-        dot.classList.remove('active');
+        video.style.opacity = '0';
       }
-    });
-  };
-
-  // Switch to specific video
-  const switchToVideo = (index) => {
-    const currentVideo = videoPlayers[currentVideoIndex];
-    const nextVideo = videoPlayers[index];
-
-    // Fade out current, fade in next
-    currentVideo.classList.remove('active');
-    nextVideo.classList.add('active');
-
-    currentVideoIndex = index;
-    updateActiveDot(index);
-  };
-
-  // Rotate videos with crossfade effect
-  const rotateVideos = () => {
-    const nextIndex = (currentVideoIndex + 1) % videoPlayers.length;
-    switchToVideo(nextIndex);
-  };
-
-  // Start video rotation every 5 seconds
-  const startAutoRotation = () => {
-    videoRotationInterval = setInterval(rotateVideos, 5000);
-    isAutoRotating = true;
-  };
-
-  const stopAutoRotation = () => {
-    if (videoRotationInterval) {
-      clearInterval(videoRotationInterval);
-      videoRotationInterval = null;
     }
-    isAutoRotating = false;
-  };
-
-  // Add click handlers to navigation dots
-  navDots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      stopAutoRotation();
-      switchToVideo(index);
-      // Resume auto-rotation after 10 seconds of inactivity
-      setTimeout(() => {
-        if (!hasScrolled && !isAutoRotating) {
-          startAutoRotation();
-        }
-      }, 10000);
-    });
   });
 
-  // Start initial rotation
-  startAutoRotation();
+  // Function to switch to next intro bg video
+  const switchIntroBgVideo = () => {
+    const currentVideo = introBgVideos[currentIntroBgIndex];
+    const nextIndex = (currentIntroBgIndex + 1) % introBgVideos.length;
+    const nextVideo = introBgVideos[nextIndex];
 
-  // Handle scroll event
-  const handleScroll = () => {
-    if (!hasScrolled && (window.scrollY > 50 || document.documentElement.scrollTop > 50)) {
-      hasScrolled = true;
-      clearInterval(videoRotationInterval);
-      heroVideo.classList.add('hidden');
-      body.classList.remove('hero-active');
+    if (currentVideo && nextVideo) {
+      // Fade out current video
+      currentVideo.style.opacity = '0';
+
+      // Fade in next video
+      nextVideo.style.opacity = '1';
+
+      currentIntroBgIndex = nextIndex;
     }
   };
 
-  // Handle wheel event
-  const handleWheel = (e) => {
-    if (!hasScrolled && e.deltaY > 0) {
-      hasScrolled = true;
-      clearInterval(videoRotationInterval);
-      heroVideo.classList.add('hidden');
-      body.classList.remove('hero-active');
-      // Smooth scroll to content
-      window.scrollTo({
-        top: 100,
-        behavior: 'smooth'
-      });
-    }
-  };
-
-  // Handle touch events for mobile
-  let touchStartY = 0;
-  const handleTouchStart = (e) => {
-    touchStartY = e.touches[0].clientY;
-  };
-
-  const handleTouchMove = (e) => {
-    if (!hasScrolled) {
-      const touchEndY = e.touches[0].clientY;
-      const deltaY = touchStartY - touchEndY;
-
-      if (deltaY > 50) { // Swipe up threshold
-        hasScrolled = true;
-        clearInterval(videoRotationInterval);
-        heroVideo.classList.add('hidden');
-        body.classList.remove('hero-active');
-        window.scrollTo({
-          top: 100,
-          behavior: 'smooth'
-        });
-      }
-    }
-  };
-
-  // Add event listeners
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  window.addEventListener('wheel', handleWheel, { passive: true });
-  window.addEventListener('touchstart', handleTouchStart, { passive: true });
-  window.addEventListener('touchmove', handleTouchMove, { passive: true });
-
+  // Rotate intro background videos every 8 seconds
+  setInterval(switchIntroBgVideo, 8000);
 });
 </script>
 

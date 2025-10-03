@@ -1135,28 +1135,40 @@ h1.modern-title {
   transform: scale(1.15) rotate(3deg);
 }
 
-/* Paper/arXiv button - Light purple gradient */
+/* Paper/arXiv button - Transparent with purple border */
 .button-paper {
-  background: linear-gradient(135deg, #DDD6FE 0%, #C4B5FD 100%);
-  color: #581C87;
-  border: none;
+  background: rgba(221, 214, 254, 0);
+  color: #FFFFFF !important;
+  border: 2px solid rgba(196, 181, 253, 0.8);
   box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
 }
 
-/* Code button - Light blue-green gradient */
+.button-paper span {
+  color: #FFFFFF !important;
+}
+
+/* Code button - Transparent with blue border */
 .button-code {
-  background: linear-gradient(135deg, #BFDBFE 0%, #A7F3D0 100%);
-  color: #1E40AF;
-  border: none;
+  background: rgba(191, 219, 254, 0);
+  color: #FFFFFF !important;
+  border: 2px solid rgba(167, 243, 208, 0.8);
   box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
 }
 
-/* Video button - Light pink-orange gradient */
+.button-code span {
+  color: #FFFFFF !important;
+}
+
+/* Video button - Transparent with pink border */
 .button-video {
-  background: linear-gradient(135deg, #FDA4AF 0%, #FDBA74 100%);
-  color: #9F1239;
-  border: none;
+  background: rgba(253, 164, 175, 0);
+  color: #FFFFFF !important;
+  border: 2px solid rgba(253, 186, 116, 0.8);
   box-shadow: 0 8px 25px rgba(236, 72, 153, 0.3);
+}
+
+.button-video span {
+  color: #FFFFFF !important;
 }
 
 .button-modern:active {
@@ -1166,6 +1178,11 @@ h1.modern-title {
 /* arXiv icon styling for paper button - keep original colors */
 .button-paper .arxiv-icon {
   filter: none;
+}
+
+/* GitHub icon styling for code button - invert to white */
+.button-code .button-icon {
+  filter: invert(1);
 }
 
 

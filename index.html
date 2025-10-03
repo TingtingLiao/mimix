@@ -113,46 +113,95 @@
 <!------------- Abstract ------------------>
 
 <div class="content">
-  <h2 style="text-align:center; color: white; background: none !important; -webkit-text-fill-color: white !important; font-size: 45px;">Motivation</h2>
-  <div style="max-width: 1600px; margin: 0 auto;">
-    <p style="color: white; font-size: 19px;">
-    Imagine Mr. Bean stepping into the cartoon Tom and Jerry—can we generate videos where our favorite characters interact naturally in new contexts?
-    Motivated by this question, we study inter-character interaction in text-to-video generation, aiming to synthesize natural interactions while preserving individual identity and behaviors.
-    This task introduces two main challenges.
-    First, the characters may have <strong style="color: #ff2f2f;">never coexisted</strong>, making it difficult to generate faithful and coherent interactions.
-    Second, combining different styled characters often leads to undesirable style shifts—for example, realistic characters appearing cartoonish—a failure mode we refer to as <strong style="color: #ee4343;">style delusion</strong>. This phenomenon arises because training videos typically belong to a single, homogeneous style.
-    
-    </p>
-  </div>
+  <h2 style="text-align:center; color: white; background: none !important; -webkit-text-fill-color: white !important; font-size: 48px; margin-bottom: 50px; font-weight: 700; letter-spacing: 2px;">🎯 Abstract</h2>
 
-  <div style="margin: 30px auto; max-width: 1200px;">
+  <!-- Main Question Box -->
+  <div style="max-width: 1400px; margin: 0 auto 40px; position: relative;">
+    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 3px; border-radius: 25px; box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);">
+      <div style="background: #0a0a0a; border-radius: 22px; padding: 40px; text-align: center; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1), transparent 50%), radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.1), transparent 50%); pointer-events: none;"></div>
+        
+        <h3 style="font-size: 20px; color: transparent; background: linear-gradient(90deg, #fff, #e0e0ff); -webkit-background-clip: text; background-clip: text; margin: 0 0 15px 0; font-weight: 700; position: relative;">
+          <span class="sparkle-emoji">✨</span> Imagine Mr. Bean stepping into <span style="font-style: italic;">Tom & Jerry</span> <span class="sparkle-emoji">✨</span>
+        </h3>
+        <p style="color: white; font-size: 20px; font-style: italic; margin: 0; position: relative;">
+          Can we generate videos where characters interact naturally across different worlds? 
+          We study <span style="background: linear-gradient(90deg, #00d2ff, #3a7bd5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;">inter-character interaction</span> in text-to-video generation, where the key challenge is to preserve each character's identity and behaviors while enabling coherent cross-context interaction.
+          This is difficult because characters may have ⚡ <span style="background: linear-gradient(90deg, #ff512f, #dd2476); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;">never coexisted</span> and because mixing styles often causes 🎨 <span style="background: linear-gradient(90deg, #f7971e, #ffd200); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; font-style: italic;">style delusion</span>, where realistic characters appear cartoonish or vice versa. 
+          We introduce a framework that tackles these issues with <span style="background: linear-gradient(90deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 600;">Cross-Character Embedding (CCE)</span>, which learns identity and behavioral logic across multimodal sources, and <span style="background: linear-gradient(90deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 600;">Cross-Character Augmentation (CCA)</span>,
+          which enriches training with synthetic co-existence and mixed-style data. 
+          Together, these techniques allow natural interactions between previously uncoexistent characters without losing stylistic fidelity. 
+          Experiments on a curated benchmark of cartoons and live-action series with 10 characters show clear improvements in identity preservation, interaction quality, and robustness to style delusion, enabling new forms of generative storytelling. 
+        </p>
+       
      
-    <div style="display: flex; gap: 20px; justify-content: center;">
-      <div class="video-wrapper" style="flex: 1; max-width: 500px;">
-        <video autoplay muted loop controls style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-          <source src="./src/videos/style_delusion_examples/Mr._Bean_sits_on_the_couch._Jerry_peeks_from_a_cus.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p style="text-align: center; margin-top: 10px; color: white; font-size: 0.9rem;">Mr. Bean appears cartoonish.</p>
-      </div>
-      <div class="video-wrapper" style="flex: 1; max-width: 500px;">
-        <video autoplay muted loop controls style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-          <source src="./src/videos/style_delusion_examples/Mr._Bean_tries_to_secretly_pra.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p style="text-align: center; margin-top: 10px; color: white; font-size: 0.9rem;">Ice Bear appears realistic</p>
+      <div style="margin: 30px auto; max-width: 1200px;"> 
+        <div style="display: flex; gap: 20px; justify-content: center;">
+          <div class="video-wrapper" style="flex: 1; max-width: 500px;">
+            <video autoplay muted loop controls style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+              <source src="./src/videos/style_delusion_examples/Mr._Bean_sits_on_the_couch._Jerry_peeks_from_a_cus.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <p style="text-align: center; margin-top: 10px; color: white; font-size: 0.9rem;">Mr. Bean appears cartoonish.</p>
+          </div>
+          <div class="video-wrapper" style="flex: 1; max-width: 500px;">
+            <video autoplay muted loop controls style="width: 100%; height: auto; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+              <source src="./src/videos/style_delusion_examples/Mr._Bean_tries_to_secretly_pra.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <p style="text-align: center; margin-top: 10px; color: white; font-size: 0.9rem;">Ice Bear appears realistic</p>
+          </div>
+        </div>
+        <h5 style="text-align: center; color: #f7f7f7; margin-bottom: 20px;">Style Delusion Examples</h4>
       </div>
     </div>
-    <h5 style="text-align: center; color: #f7f7f7; margin-bottom: 20px;">Style Delusion Examples</h4>
+
   </div>
 </div>
+  <!-- </div> -->
+
+
+
+   
 
 
 <!------------- More Results ------------------>
-<div class="content more-results-section">
-  <h2 class="fancy-title" style="color: white; background: none !important; -webkit-text-fill-color: white !important; font-size: 45px;">More Results</h2>
+<div class="more-results-section" style="display: flex; flex-direction: column; align-items: center; padding: 60px 20px; width: 100%; box-sizing: border-box; margin-top: 80px;">
+  <h2 class="fancy-title" style="color: white; background: none !important; -webkit-text-fill-color: white !important; font-size: 48px; text-align: center; margin-bottom: 40px; font-weight: 700; letter-spacing: 2px;">
+    <span style="background: linear-gradient(135deg, #ff6b6b, #4ecdc4); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">🎬</span> More Results
+  </h2>
+
+  <!-- Main box similar to other sections -->
+  <div style="position: relative; max-width: 1800px; width: 100%; background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1)); padding: 40px; border-radius: 25px; border: 2px solid rgba(255, 107, 107, 0.5); box-shadow: 0 20px 60px rgba(255, 107, 107, 0.2), inset 0 0 20px rgba(78, 205, 196, 0.05); backdrop-filter: blur(10px);">
+    <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(90deg, #ff6b6b, #4ecdc4); padding: 8px 24px; border-radius: 20px; font-size: 12px; font-weight: 600; color: white; letter-spacing: 1px; text-transform: uppercase;">Gallery</div>
 
   <style>
+    /* Sparkle emoji animation */
+    .sparkle-emoji {
+      display: inline-block;
+      background: linear-gradient(45deg, #ffd700, #ffed4b, #ffc700, #ffed4b, #ffd700);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: sparkleGradient 2s ease infinite, sparkleRotate 3s linear infinite;
+      font-size: 26px;
+      filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.5));
+    }
+
+    @keyframes sparkleGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes sparkleRotate {
+      0% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(15deg) scale(1.2); }
+      50% { transform: rotate(0deg) scale(1); }
+      75% { transform: rotate(-15deg) scale(1.2); }
+      100% { transform: rotate(0deg) scale(1); }
+    }
+
     .more-results-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -302,6 +351,7 @@
       </video>
     </div>
   </div>
+  </div>
 </div>
 
 
@@ -310,7 +360,7 @@
 <style>
   .multi-char-section, .single-char-section, .more-results-section {
     /* Removed gradient background to keep pure white from .content class */
-    padding: 20px 0;
+    padding: 0;
     position: relative;
     overflow: hidden;
   }
@@ -667,24 +717,167 @@
   }
 </style>
 
-<div class="content multi-char-section">
-  <h2 class="fancy-title" style="color: white; background: none !important; -webkit-text-fill-color: white !important; font-size: 45px;">Multi-Character Comparison</h2>
-  
-<!-- 
-  <p style="text-align:center; font-size: 1.1rem; color: white; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
-    Experience the power of character mixing as diverse personalities interact naturally in unprecedented scenarios
-  </p> -->
+<div class="multi-char-section" style="display: flex; flex-direction: column; align-items: center; padding: 60px 20px; width: 100%; box-sizing: border-box;">
+  <h2 class="fancy-title" style="color: white; background: none !important; -webkit-text-fill-color: white !important; font-size: 48px; text-align: center; margin-bottom: 40px; font-weight: 700; letter-spacing: 2px;">
+    <span style="background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">👥</span> Multi-Character Comparison
+  </h2>
 
-  <!-- <div class="method-badges">
-    <div class="method-badge method-baseline"> 
-      <span>Skyreel-A2 (Left)</span>
-    </div>
-    <div class="method-badge method-ours"> 
-      <span>Our Method (Right)</span>
-    </div>
-  </div> -->
+  <!-- Main box similar to abstract/citation -->
+  <div style="position: relative; max-width: 1800px; width: 100%; background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); padding: 40px; border-radius: 25px; border: 2px solid rgba(102, 126, 234, 0.5); box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2), inset 0 0 20px rgba(102, 126, 234, 0.05); backdrop-filter: blur(10px);">
+    <!-- <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(90deg, #667eea, #764ba2); padding: 8px 24px; border-radius: 20px; font-size: 12px; font-weight: 600; color: white; letter-spacing: 1px; text-transform: uppercase;">Multi-Characters</div> -->
 
-  <div class="video-carousel" style="margin: 0 auto;">
+    <!-- Comparison grid with rotation -->
+    <div class="comparison-grid" style="margin: 0 auto; padding: 10px; position: relative; min-height: 600px;">
+
+    <!-- First set (initially visible) -->
+    <div class="comparison-set" id="multiCharSet1" style="display: block;">
+      <!-- Row 1: All "Ours" videos -->
+      <div class="comparison-row" style="display: flex; gap: 25px; margin-bottom: 35px; padding: 20px; background: linear-gradient(135deg, rgba(76, 175, 80, 0.05), rgba(76, 175, 80, 0.02)); border-radius: 20px; border: 1px solid rgba(76, 175, 80, 0.1);">
+        <div style="position: relative; flex: 1; transform: scale(1); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+          <span class="indicator-badge indicator-ours" style="position: absolute; top: 12px; left: 12px; z-index: 10; font-size: 0.9rem; padding: 6px 14px; border-radius: 10px; font-weight: 600; box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);">✨ Ours</span>
+          <video autoplay muted loop controls style="width: 100%; height: 260px; object-fit: cover; background: black; border-radius: 16px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);">
+            <source src="./src/videos/multi_comparison/pair_1_bean_tom/ours.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div style="flex: 1; transform: scale(1); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+          <video autoplay muted loop controls style="width: 100%; height: 260px; object-fit: cover; background: black; border-radius: 16px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);">
+            <source src="./src/videos/multi_comparison/pair_2_fishing/ours.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div style="flex: 1; transform: scale(1); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+          <video autoplay muted loop controls style="width: 100%; height: 260px; object-fit: cover; background: black; border-radius: 16px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);">
+            <source src="./src/videos/multi_comparison/pair_3_bakery/ours.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div style="flex: 1; transform: scale(1); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+          <video autoplay muted loop controls style="width: 100%; height: 260px; object-fit: cover; background: black; border-radius: 16px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);">
+            <source src="./src/videos/multi_comparison/pair_4_tea_party/ours.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
+      <!-- Row 2: All "Skyreel" videos -->
+      <div class="comparison-row" style="display: flex; gap: 25px; margin-bottom: 40px; padding: 20px; background: linear-gradient(135deg, rgba(250, 112, 154, 0.05), rgba(250, 112, 154, 0.02)); border-radius: 20px; border: 1px solid rgba(250, 112, 154, 0.1);">
+        <div style="position: relative; flex: 1; transform: scale(1); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+          <span class="indicator-badge" style="position: absolute; top: 12px; left: 12px; z-index: 10; background: linear-gradient(135deg, rgba(250, 112, 154, 0.9), rgba(255, 100, 146, 0.9)); color: white; font-size: 0.9rem; padding: 6px 14px; border-radius: 10px; font-weight: 600; box-shadow: 0 4px 12px rgba(250, 112, 154, 0.3);">🎬 Skyreel-A2</span>
+          <video autoplay muted loop controls style="width: 100%; height: 260px; object-fit: cover; background: black; border-radius: 16px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);">
+            <source src="./src/videos/multi_comparison/pair_1_bean_tom/skyreel.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div style="flex: 1; transform: scale(1); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+          <video autoplay muted loop controls style="width: 100%; height: 260px; object-fit: cover; background: black; border-radius: 16px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);">
+            <source src="./src/videos/multi_comparison/pair_2_fishing/skyreel.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div style="flex: 1; transform: scale(1); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+          <video autoplay muted loop controls style="width: 100%; height: 260px; object-fit: cover; background: black; border-radius: 16px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);">
+            <source src="./src/videos/multi_comparison/pair_3_bakery/skyreel.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div style="flex: 1; transform: scale(1); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+          <video autoplay muted loop controls style="width: 100%; height: 260px; object-fit: cover; background: black; border-radius: 16px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);">
+            <source src="./src/videos/multi_comparison/pair_4_tea_party/skyreel.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second set (initially hidden) -->
+    <div class="comparison-set" id="multiCharSet2" style="display: none;">
+      <!-- Second set - Ours videos -->
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; justify-content: center;">
+        <div style="position: relative; width: calc(33.33% - 15px);">
+          <span class="indicator-badge indicator-ours" style="position: absolute; top: 10px; left: 10px; z-index: 10; font-size: 0.8rem; padding: 4px 12px;">Ours</span>
+          <video autoplay muted loop controls style="width: 100%; height: 250px; object-fit: cover; background: black; border-radius: 12px;">
+            <source src="./src/videos/multi_comparison/pair_5_aquarium/ours.mp4" type="video/mp4">
+          </video>
+        </div>
+        <video autoplay muted loop controls style="width: calc(33.33% - 15px); height: 250px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/multi_comparison/pair_6_tech_startup/ours.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="width: calc(33.33% - 15px); height: 250px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/multi_comparison/pair_7_mall_security/ours.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- Second set - Skyreel videos -->
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 40px; justify-content: center;">
+        <div style="position: relative; width: calc(33.33% - 15px);">
+          <span class="indicator-badge" style="position: absolute; top: 10px; left: 10px; z-index: 10; background: rgba(250, 112, 154, 0.9); color: white; font-size: 0.8rem; padding: 4px 12px;">Skyreel-A2</span>
+          <video autoplay muted loop controls style="width: 100%; height: 250px; object-fit: cover; background: black; border-radius: 12px;">
+            <source src="./src/videos/multi_comparison/pair_5_aquarium/skyreel.mp4" type="video/mp4">
+          </video>
+        </div>
+        <video autoplay muted loop controls style="width: calc(33.33% - 15px); height: 250px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/multi_comparison/pair_6_tech_startup/skyreel.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="width: calc(33.33% - 15px); height: 250px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/multi_comparison/pair_7_mall_security/skyreel.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <!-- Navigation dots -->
+    <div style="text-align: center; margin-top: 20px;">
+      <span class="carousel-dot active" id="multiCharDot1" onclick="showMultiCharSetManual(0)" style="cursor: pointer; display: inline-block; width: 10px; height: 10px; margin: 0 5px; background-color: #4CAF50; border-radius: 50%;"></span>
+      <span class="carousel-dot" id="multiCharDot2" onclick="showMultiCharSetManual(1)" style="cursor: pointer; display: inline-block; width: 10px; height: 10px; margin: 0 5px; background-color: #666; border-radius: 50%;"></span>
+    </div>
+    </div>
+  </div>
+</div>
+
+  <script>
+    // Multi-character comparison rotation with video loop tracking
+    let currentMultiCharSet = 0;
+    let videoLoopCount = 0;
+    const multiCharSets = ['multiCharSet1', 'multiCharSet2'];
+    const multiCharDots = ['multiCharDot1', 'multiCharDot2'];
+    const videoDuration = 4000; // Approximate duration of each video in milliseconds
+    const loopsBeforeSwitch = 2; // Number of times to play videos before switching
+
+    function showMultiCharSet(index, resetLoopCount = true) {
+      // Hide all sets
+      multiCharSets.forEach(setId => {
+        document.getElementById(setId).style.display = 'none';
+      });
+
+      // Reset all dots
+      multiCharDots.forEach(dotId => {
+        document.getElementById(dotId).style.backgroundColor = '#666';
+        document.getElementById(dotId).classList.remove('active');
+      });
+
+      // Show selected set
+      document.getElementById(multiCharSets[index]).style.display = 'block';
+      document.getElementById(multiCharDots[index]).style.backgroundColor = '#4CAF50';
+      document.getElementById(multiCharDots[index]).classList.add('active');
+
+      currentMultiCharSet = index;
+
+      // Reset loop count when manually switching or when specified
+      if (resetLoopCount) {
+        videoLoopCount = 0;
+      }
+    }
+
+    // Track video loops and switch after playing twice
+    setInterval(() => {
+      videoLoopCount++;
+
+      // Switch to next set after videos have played twice
+      if (videoLoopCount >= loopsBeforeSwitch) {
+        currentMultiCharSet = (currentMultiCharSet + 1) % multiCharSets.length;
+        showMultiCharSet(currentMultiCharSet, true);
+      }
+    }, videoDuration);
+
+    // Allow manual switching with dots
+    window.showMultiCharSetManual = function(index) {
+      showMultiCharSet(index, true);
+    };
+  </script>
+
+  <div class="video-carousel" style="margin: 0 auto; display: none;">
     <div class="carousel-container">
       <div class="carousel-progress" id="multiCharProgress"></div>
       <div class="carousel-slides" id="multiCharSlides">
@@ -943,379 +1136,575 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 <!------------- Single Character Results ------------------>
-<div class="content single-char-section">
-  <h2 class="fancy-title" style="color: white; background: none !important; -webkit-text-fill-color: white !important; font-size: 45px;">Single-character Comparison</h2>
+<div class="single-char-section" style="display: flex; flex-direction: column; align-items: center; padding: 60px 20px; width: 100%; box-sizing: border-box;">
+  <h2 class="fancy-title" style="color: white; background: none !important; -webkit-text-fill-color: white !important; font-size: 48px; text-align: center; margin-bottom: 40px; font-weight: 700; letter-spacing: 2px;">
+    <span style="background: linear-gradient(135deg, #00d2ff, #3a7bd5); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">👤</span> Single-character Comparison
+  </h2>
 
-  <!-- <p style="text-align:center; font-size: 1.1rem; color: white; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
-    Comparing our method against state-of-the-art approaches in single-character video generation
-  </p> -->
+  <!-- Main box similar to abstract/citation -->
+  <div style="position: relative; max-width: 1800px; width: 100%; background: linear-gradient(135deg, rgba(0, 210, 255, 0.1), rgba(58, 123, 213, 0.1)); padding: 40px; border-radius: 25px; border: 2px solid rgba(0, 210, 255, 0.5); box-shadow: 0 20px 60px rgba(0, 210, 255, 0.2), inset 0 0 20px rgba(0, 210, 255, 0.05); backdrop-filter: blur(10px);">
+    <!-- <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(90deg, #00d2ff, #3a7bd5); padding: 8px 24px; border-radius: 20px; font-size: 12px; font-weight: 600; color: white; letter-spacing: 1px; text-transform: uppercase;">Single Character</div> -->
 
-  <div class="video-carousel" style="margin: 0 auto;">
-    <div class="carousel-container">
-      <div class="carousel-progress" id="singleCharProgress"></div>
-      <div class="carousel-slides" id="singleCharSlides">
-        <!-- Slide 1 -->
-        <div class="carousel-slide active">
-          <div class="video-wrapper">
-            <div class="comparison-indicator">
-              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
-              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
-              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
-            </div>
-            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
-              <span class="indicator-badge indicator-ours">Ours</span>
-              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
-            </div>
-            <video autoplay muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_01_grid.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
+    <!-- Comparison grid with rotation -->
+    <div class="comparison-grid" style="margin: 0 auto; padding: 10px; position: relative; min-height: 750px;">
+    <!-- Set 1 - Initially visible -->
+    <div class="single-char-set" id="singleCharSet1" style="display: block;">
+      <!-- Headers -->
+      <div style="display: flex; justify-content: space-between; margin-bottom: 30px; padding: 15px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)); border-radius: 20px; gap: 15px;">
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge indicator-ours" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3); background: linear-gradient(135deg, rgba(76, 175, 80, 0.9), rgba(67, 160, 71, 0.9));">✨ Ours</span>
         </div>
-
-        <!-- Slide 2 -->
-        <div class="carousel-slide">
-          <div class="video-wrapper">
-            <div class="comparison-indicator">
-              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
-              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
-              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
-            </div>
-            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
-              <span class="indicator-badge indicator-ours">Ours</span>
-              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
-            </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_04_grid.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(250, 112, 154, 0.3); background: linear-gradient(135deg, rgba(250, 112, 154, 0.9), rgba(255, 100, 146, 0.9)); color: white;">🎬 Skyreel</span>
         </div>
-
-        <!-- Slide 3 -->
-        <div class="carousel-slide">
-          <div class="video-wrapper">
-            <div class="comparison-indicator">
-              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
-              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
-              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
-            </div>
-            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
-              <span class="indicator-badge indicator-ours">Ours</span>
-              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
-            </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example1_grid.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3); background: linear-gradient(135deg, rgba(255, 193, 7, 0.9), rgba(255, 160, 0, 0.9)); color: white;">🎨 Wan-I2V</span>
         </div>
-
-        <!-- Slide 4 -->
-        <div class="carousel-slide">
-          <div class="video-wrapper">
-            <div class="comparison-indicator">
-              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
-              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
-              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
-            </div>
-            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
-              <span class="indicator-badge indicator-ours">Ours</span>
-              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
-            </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_14_grid.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(156, 39, 176, 0.3); background: linear-gradient(135deg, rgba(156, 39, 176, 0.9), rgba(142, 36, 170, 0.9)); color: white;">💫 DreamVideo</span>
         </div>
-
-        <!-- Slide 5 -->
-        <div class="carousel-slide">
-          <div class="video-wrapper">
-            <div class="comparison-indicator">
-              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
-              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
-              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
-            </div>
-            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
-              <span class="indicator-badge indicator-ours">Ours</span>
-              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
-            </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_10_grid.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-
-        <!-- Slide 6 -->
-        <div class="carousel-slide">
-          <div class="video-wrapper">
-            <div class="comparison-indicator">
-              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
-              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
-              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
-            </div>
-            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
-              <span class="indicator-badge indicator-ours">Ours</span>
-              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
-            </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_20_grid.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-
-        <!-- Slide 7 -->
-        <div class="carousel-slide">
-          <div class="video-wrapper">
-            <div class="comparison-indicator">
-              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
-              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
-              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
-            </div>
-            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
-              <span class="indicator-badge indicator-ours">Ours</span>
-              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
-            </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_21_grid.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-
-        <!-- Slide 8 -->
-        <div class="carousel-slide">
-          <div class="video-wrapper">
-            <div class="comparison-indicator">
-              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
-              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
-              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
-            </div>
-            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
-              <span class="indicator-badge indicator-ours">Ours</span>
-              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
-            </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_22_grid.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-
-        <!-- Slide 9 -->
-        <div class="carousel-slide">
-          <div class="video-wrapper">
-            <div class="comparison-indicator">
-              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
-              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
-              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
-            </div>
-            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
-              <span class="indicator-badge indicator-ours">Ours</span>
-              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
-            </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_25_grid.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-
-        <!-- Slide 10 -->
-        <div class="carousel-slide">
-          <div class="video-wrapper">
-            <div class="comparison-indicator">
-              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
-              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
-              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
-            </div>
-            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
-              <span class="indicator-badge indicator-ours">Ours</span>
-              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
-            </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_28_grid.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-
-        <!-- Slide 11 -->
-        <div class="carousel-slide">
-          <div class="video-wrapper">
-            <div class="comparison-indicator">
-              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
-              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
-              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
-            </div>
-            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
-              <span class="indicator-badge indicator-ours">Ours</span>
-              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
-            </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example2_grid.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-
-        <!-- Slide 12 -->
-        <div class="carousel-slide">
-          <div class="video-wrapper">
-            <div class="comparison-indicator">
-              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
-              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
-              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
-            </div>
-            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
-              <span class="indicator-badge indicator-ours">Ours</span>
-              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
-            </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_30_grid.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-
-        <!-- Slide 13 -->
-        <div class="carousel-slide">
-          <div class="video-wrapper">
-            <div class="comparison-indicator">
-              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
-              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
-              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
-            </div>
-            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
-              <span class="indicator-badge indicator-ours">Ours</span>
-              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
-            </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_31_grid.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-
-        <!-- Slide 14 -->
-        <div class="carousel-slide">
-          <div class="video-wrapper">
-            <div class="comparison-indicator">
-              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
-              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
-              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
-            </div>
-            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
-              <span class="indicator-badge indicator-ours">Ours</span>
-              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
-            </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_george1_grid.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-
-        <!-- Slide 15 -->
-        <div class="carousel-slide">
-          <div class="video-wrapper">
-            <div class="comparison-indicator">
-              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
-              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
-              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
-            </div>
-            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
-              <span class="indicator-badge indicator-ours">Ours</span>
-              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
-            </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_george2_grid.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-
-        <!-- Slide 16 -->
-        <div class="carousel-slide">
-          <div class="video-wrapper">
-            <div class="comparison-indicator">
-              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
-              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
-              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
-            </div>
-            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
-              <span class="indicator-badge indicator-ours">Ours</span>
-              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
-            </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_penny1_grid.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-
-        <!-- Slide 17 -->
-        <div class="carousel-slide">
-          <div class="video-wrapper">
-            <div class="comparison-indicator">
-              <span class="indicator-badge" style="background: rgba(33, 150, 243, 0.9); color: white;">VideoBooth</span>
-              <span class="indicator-badge" style="background: rgba(156, 39, 176, 0.9); color: white; position: absolute; left: 50%; transform: translateX(-50%);">DreamVideo</span>
-              <span class="indicator-badge" style="background: rgba(255, 193, 7, 0.9); color: white;">Wan-I2V</span>
-            </div>
-            <div class="comparison-indicator" style="top: auto; bottom: 15px;">
-              <span class="indicator-badge indicator-ours">Ours</span>
-              <span class="indicator-badge" style="background: rgba(250, 112, 154, 0.9); color: white;">Skyreel</span>
-            </div>
-            <video muted loop controls style="width: 100%; height: auto;">
-              <source src="./src/videos/single_comparison/example_penny2_grid.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3); background: linear-gradient(135deg, rgba(33, 150, 243, 0.9), rgba(30, 136, 229, 0.9)); color: white;">🎥 VideoBooth</span>
         </div>
       </div>
 
-      <!-- Carousel Controls -->
-      <div class="carousel-controls">
-        <button class="carousel-btn" onclick="prevSlide('singleChar')">‹</button>
-        <div class="carousel-dots" id="singleCharDots">
-          <span class="carousel-dot active" onclick="goToSlide('singleChar', 0)"></span>
-          <span class="carousel-dot" onclick="goToSlide('singleChar', 1)"></span>
-          <span class="carousel-dot" onclick="goToSlide('singleChar', 2)"></span>
-          <span class="carousel-dot" onclick="goToSlide('singleChar', 3)"></span>
-          <span class="carousel-dot" onclick="goToSlide('singleChar', 4)"></span>
-          <span class="carousel-dot" onclick="goToSlide('singleChar', 5)"></span>
-          <span class="carousel-dot" onclick="goToSlide('singleChar', 6)"></span>
-          <span class="carousel-dot" onclick="goToSlide('singleChar', 7)"></span>
-          <span class="carousel-dot" onclick="goToSlide('singleChar', 8)"></span>
-          <span class="carousel-dot" onclick="goToSlide('singleChar', 9)"></span>
-          <span class="carousel-dot" onclick="goToSlide('singleChar', 10)"></span>
-          <span class="carousel-dot" onclick="goToSlide('singleChar', 11)"></span>
-          <span class="carousel-dot" onclick="goToSlide('singleChar', 12)"></span>
-          <span class="carousel-dot" onclick="goToSlide('singleChar', 13)"></span>
-          <span class="carousel-dot" onclick="goToSlide('singleChar', 14)"></span>
-          <span class="carousel-dot" onclick="goToSlide('singleChar', 15)"></span>
-          <span class="carousel-dot" onclick="goToSlide('singleChar', 16)"></span>
+      <!-- Example 10 -->
+      <div class="comparison-row" style="display: flex; gap: 25px; margin-bottom: 35px; padding: 15px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), transparent); border-radius: 20px; align-items: stretch;">
+        <div style="flex: 1; position: relative; transform: scale(1); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.03)'; this.style.zIndex='10'" onmouseout="this.style.transform='scale(1)'; this.style.zIndex='1'">
+          <video autoplay muted loop controls style="width: 100%; height: 220px; object-fit: cover; background: black; border-radius: 16px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); border: 2px solid rgba(76, 175, 80, 0.3);">
+            <source src="./src/videos/single_comparison/example_10/ours.mp4" type="video/mp4">
+          </video>
         </div>
-        <button class="carousel-btn" onclick="nextSlide('singleChar')">›</button>
+        <div style="flex: 1; position: relative; transform: scale(1); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.03)'; this.style.zIndex='10'" onmouseout="this.style.transform='scale(1)'; this.style.zIndex='1'">
+          <video autoplay muted loop controls style="width: 100%; height: 220px; object-fit: cover; background: black; border-radius: 16px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); border: 2px solid rgba(250, 112, 154, 0.3);">
+            <source src="./src/videos/single_comparison/example_10/skyreel.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div style="flex: 1; position: relative; transform: scale(1); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.03)'; this.style.zIndex='10'" onmouseout="this.style.transform='scale(1)'; this.style.zIndex='1'">
+          <video autoplay muted loop controls style="width: 100%; height: 220px; object-fit: cover; background: black; border-radius: 16px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); border: 2px solid rgba(255, 193, 7, 0.3);">
+            <source src="./src/videos/single_comparison/example_10/wan.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div style="flex: 1; position: relative; transform: scale(1); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.03)'; this.style.zIndex='10'" onmouseout="this.style.transform='scale(1)'; this.style.zIndex='1'">
+          <video autoplay muted loop controls style="width: 100%; height: 220px; object-fit: cover; background: black; border-radius: 16px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); border: 2px solid rgba(156, 39, 176, 0.3);">
+            <source src="./src/videos/single_comparison/example_10/dreamvideo.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div style="flex: 1; position: relative; transform: scale(1); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.03)'; this.style.zIndex='10'" onmouseout="this.style.transform='scale(1)'; this.style.zIndex='1'">
+          <video autoplay muted loop controls style="width: 100%; height: 220px; object-fit: cover; background: black; border-radius: 16px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); border: 2px solid rgba(33, 150, 243, 0.3);">
+            <source src="./src/videos/single_comparison/example_10/videobooth.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
+      <!-- Example 30 -->
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_30/ours.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_30/skyreel.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_30/wan.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_30/dreamvideo.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_30/videobooth.mp4" type="video/mp4">
+        </video>
+      </div>
+      <!-- Example 21 -->
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_21/ours.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_21/skyreel.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_21/wan.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_21/dreamvideo.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_21/videobooth.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <!-- Set 2 - Initially hidden -->
+    <div class="single-char-set" id="singleCharSet2" style="display: none;">
+      <!-- Headers -->
+      <div style="display: flex; justify-content: space-between; margin-bottom: 30px; padding: 15px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)); border-radius: 20px; gap: 15px;">
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge indicator-ours" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3); background: linear-gradient(135deg, rgba(76, 175, 80, 0.9), rgba(67, 160, 71, 0.9));">✨ Ours</span>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(250, 112, 154, 0.3); background: linear-gradient(135deg, rgba(250, 112, 154, 0.9), rgba(255, 100, 146, 0.9)); color: white;">🎬 Skyreel</span>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3); background: linear-gradient(135deg, rgba(255, 193, 7, 0.9), rgba(255, 160, 0, 0.9)); color: white;">🎨 Wan-I2V</span>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(156, 39, 176, 0.3); background: linear-gradient(135deg, rgba(156, 39, 176, 0.9), rgba(142, 36, 170, 0.9)); color: white;">💫 DreamVideo</span>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3); background: linear-gradient(135deg, rgba(33, 150, 243, 0.9), rgba(30, 136, 229, 0.9)); color: white;">🎥 VideoBooth</span>
+        </div>
+      </div>
+
+      <!-- Example 28 -->
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_28/ours.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_28/skyreel.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_28/wan.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_28/dreamvideo.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_28/videobooth.mp4" type="video/mp4">
+        </video>
+      </div>
+      <!-- Example Mary2 -->
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_mary2/ours.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_mary2/skyreel.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_mary2/wan.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_mary2/dreamvideo.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_mary2/videobooth.mp4" type="video/mp4">
+        </video>
+      </div>
+      <!-- Example 25 -->
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_25/ours.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_25/skyreel.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_25/wan.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_25/dreamvideo.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_25/videobooth.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <!-- Set 3 - Initially hidden -->
+    <div class="single-char-set" id="singleCharSet3" style="display: none;">
+      <!-- Headers -->
+      <div style="display: flex; justify-content: space-between; margin-bottom: 30px; padding: 15px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)); border-radius: 20px; gap: 15px;">
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge indicator-ours" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3); background: linear-gradient(135deg, rgba(76, 175, 80, 0.9), rgba(67, 160, 71, 0.9));">✨ Ours</span>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(250, 112, 154, 0.3); background: linear-gradient(135deg, rgba(250, 112, 154, 0.9), rgba(255, 100, 146, 0.9)); color: white;">🎬 Skyreel</span>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3); background: linear-gradient(135deg, rgba(255, 193, 7, 0.9), rgba(255, 160, 0, 0.9)); color: white;">🎨 Wan-I2V</span>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(156, 39, 176, 0.3); background: linear-gradient(135deg, rgba(156, 39, 176, 0.9), rgba(142, 36, 170, 0.9)); color: white;">💫 DreamVideo</span>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3); background: linear-gradient(135deg, rgba(33, 150, 243, 0.9), rgba(30, 136, 229, 0.9)); color: white;">🎥 VideoBooth</span>
+        </div>
+      </div>
+
+      <!-- Example 22 -->
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_22/ours.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_22/skyreel.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_22/wan.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_22/dreamvideo.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_22/videobooth.mp4" type="video/mp4">
+        </video>
+      </div>
+      <!-- Example Penny1 -->
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_penny1/ours.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_penny1/skyreel.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_penny1/wan.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_penny1/dreamvideo.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_penny1/videobooth.mp4" type="video/mp4">
+        </video>
+      </div>
+      <!-- Example Mary1 -->
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_mary1/ours.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_mary1/skyreel.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_mary1/wan.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_mary1/dreamvideo.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_mary1/videobooth.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <!-- Set 4 - Initially hidden -->
+    <div class="single-char-set" id="singleCharSet4" style="display: none;">
+      <!-- Headers -->
+      <div style="display: flex; justify-content: space-between; margin-bottom: 30px; padding: 15px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)); border-radius: 20px; gap: 15px;">
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge indicator-ours" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3); background: linear-gradient(135deg, rgba(76, 175, 80, 0.9), rgba(67, 160, 71, 0.9));">✨ Ours</span>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(250, 112, 154, 0.3); background: linear-gradient(135deg, rgba(250, 112, 154, 0.9), rgba(255, 100, 146, 0.9)); color: white;">🎬 Skyreel</span>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3); background: linear-gradient(135deg, rgba(255, 193, 7, 0.9), rgba(255, 160, 0, 0.9)); color: white;">🎨 Wan-I2V</span>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(156, 39, 176, 0.3); background: linear-gradient(135deg, rgba(156, 39, 176, 0.9), rgba(142, 36, 170, 0.9)); color: white;">💫 DreamVideo</span>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3); background: linear-gradient(135deg, rgba(33, 150, 243, 0.9), rgba(30, 136, 229, 0.9)); color: white;">🎥 VideoBooth</span>
+        </div>
+      </div>
+
+      <!-- Example 20 -->
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_20/ours.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_20/skyreel.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_20/wan.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_20/dreamvideo.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_20/videobooth.mp4" type="video/mp4">
+        </video>
+      </div>
+      <!-- Example1 -->
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example1/ours.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example1/skyreel.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example1/wan.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example1/dreamvideo.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example1/videobooth.mp4" type="video/mp4">
+        </video>
+      </div>
+      <!-- Example 31 -->
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_31/ours.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_31/skyreel.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_31/wan.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_31/dreamvideo.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_31/videobooth.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <!-- Set 5 - Initially hidden -->
+    <div class="single-char-set" id="singleCharSet5" style="display: none;">
+      <!-- Headers -->
+      <div style="display: flex; justify-content: space-between; margin-bottom: 30px; padding: 15px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)); border-radius: 20px; gap: 15px;">
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge indicator-ours" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3); background: linear-gradient(135deg, rgba(76, 175, 80, 0.9), rgba(67, 160, 71, 0.9));">✨ Ours</span>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(250, 112, 154, 0.3); background: linear-gradient(135deg, rgba(250, 112, 154, 0.9), rgba(255, 100, 146, 0.9)); color: white;">🎬 Skyreel</span>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3); background: linear-gradient(135deg, rgba(255, 193, 7, 0.9), rgba(255, 160, 0, 0.9)); color: white;">🎨 Wan-I2V</span>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(156, 39, 176, 0.3); background: linear-gradient(135deg, rgba(156, 39, 176, 0.9), rgba(142, 36, 170, 0.9)); color: white;">💫 DreamVideo</span>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3); background: linear-gradient(135deg, rgba(33, 150, 243, 0.9), rgba(30, 136, 229, 0.9)); color: white;">🎥 VideoBooth</span>
+        </div>
+      </div>
+
+      <!-- Example 14 -->
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_14/ours.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_14/skyreel.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_14/wan.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_14/dreamvideo.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_14/videobooth.mp4" type="video/mp4">
+        </video>
+      </div>
+      <!-- Example2 -->
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example2/ours.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example2/skyreel.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example2/wan.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example2/dreamvideo.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example2/videobooth.mp4" type="video/mp4">
+        </video>
+      </div>
+      <!-- Example George2 -->
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_george2/ours.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_george2/skyreel.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_george2/wan.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_george2/dreamvideo.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_george2/videobooth.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <!-- Set 6 - Initially hidden -->
+    <div class="single-char-set" id="singleCharSet6" style="display: none;">
+      <!-- Headers -->
+      <div style="display: flex; justify-content: space-between; margin-bottom: 30px; padding: 15px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)); border-radius: 20px; gap: 15px;">
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge indicator-ours" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3); background: linear-gradient(135deg, rgba(76, 175, 80, 0.9), rgba(67, 160, 71, 0.9));">✨ Ours</span>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(250, 112, 154, 0.3); background: linear-gradient(135deg, rgba(250, 112, 154, 0.9), rgba(255, 100, 146, 0.9)); color: white;">🎬 Skyreel</span>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3); background: linear-gradient(135deg, rgba(255, 193, 7, 0.9), rgba(255, 160, 0, 0.9)); color: white;">🎨 Wan-I2V</span>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(156, 39, 176, 0.3); background: linear-gradient(135deg, rgba(156, 39, 176, 0.9), rgba(142, 36, 170, 0.9)); color: white;">💫 DreamVideo</span>
+        </div>
+        <div style="flex: 1; text-align: center;">
+          <span class="indicator-badge" style="display: inline-block; padding: 8px 20px; font-size: 0.95rem; font-weight: 600; border-radius: 12px; box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3); background: linear-gradient(135deg, rgba(33, 150, 243, 0.9), rgba(30, 136, 229, 0.9)); color: white;">🎥 VideoBooth</span>
+        </div>
+      </div>
+
+      <!-- Example 01 -->
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_01/ours.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_01/skyreel.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_01/wan.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_01/dreamvideo.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_01/videobooth.mp4" type="video/mp4">
+        </video>
+      </div>
+      <!-- Example 04 -->
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_04/ours.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_04/skyreel.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_04/wan.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_04/dreamvideo.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_04/videobooth.mp4" type="video/mp4">
+        </video>
+      </div>
+      <!-- Example George1 -->
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_george1/ours.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_george1/skyreel.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_george1/wan.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_george1/dreamvideo.mp4" type="video/mp4">
+        </video>
+        <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
+          <source src="./src/videos/single_comparison/example_george1/videobooth.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <!-- Navigation dots -->
+    <div style="text-align: center; margin-top: 20px;">
+      <span class="carousel-dot active" id="singleCharDot1" onclick="showSingleCharSetManual(0)" style="cursor: pointer; display: inline-block; width: 10px; height: 10px; margin: 0 5px; background-color: #4CAF50; border-radius: 50%;"></span>
+      <span class="carousel-dot" id="singleCharDot2" onclick="showSingleCharSetManual(1)" style="cursor: pointer; display: inline-block; width: 10px; height: 10px; margin: 0 5px; background-color: #666; border-radius: 50%;"></span>
+      <span class="carousel-dot" id="singleCharDot3" onclick="showSingleCharSetManual(2)" style="cursor: pointer; display: inline-block; width: 10px; height: 10px; margin: 0 5px; background-color: #666; border-radius: 50%;"></span>
+      <span class="carousel-dot" id="singleCharDot4" onclick="showSingleCharSetManual(3)" style="cursor: pointer; display: inline-block; width: 10px; height: 10px; margin: 0 5px; background-color: #666; border-radius: 50%;"></span>
+      <span class="carousel-dot" id="singleCharDot5" onclick="showSingleCharSetManual(4)" style="cursor: pointer; display: inline-block; width: 10px; height: 10px; margin: 0 5px; background-color: #666; border-radius: 50%;"></span>
+      <span class="carousel-dot" id="singleCharDot6" onclick="showSingleCharSetManual(5)" style="cursor: pointer; display: inline-block; width: 10px; height: 10px; margin: 0 5px; background-color: #666; border-radius: 50%;"></span>
+    </div>
     </div>
   </div>
 </div>
+
+  <script>
+    // Single-character comparison rotation with video loop tracking
+    let currentSingleCharSet = 0;
+    let singleCharLoopCount = 0;
+    const singleCharSets = ['singleCharSet1', 'singleCharSet2', 'singleCharSet3', 'singleCharSet4', 'singleCharSet5', 'singleCharSet6'];
+    const singleCharDots = ['singleCharDot1', 'singleCharDot2', 'singleCharDot3', 'singleCharDot4', 'singleCharDot5', 'singleCharDot6'];
+    const singleCharVideoDuration = 4000; // Approximate duration of each video in milliseconds
+    const singleCharLoopsBeforeSwitch = 2; // Number of times to play videos before switching
+
+    function showSingleCharSet(index, resetLoopCount = true) {
+      // Hide all sets
+      singleCharSets.forEach(setId => {
+        const element = document.getElementById(setId);
+        if (element) element.style.display = 'none';
+      });
+
+      // Reset all dots
+      singleCharDots.forEach(dotId => {
+        const element = document.getElementById(dotId);
+        if (element) {
+          element.style.backgroundColor = '#666';
+          element.classList.remove('active');
+        }
+      });
+
+      // Show selected set
+      const selectedSet = document.getElementById(singleCharSets[index]);
+      const selectedDot = document.getElementById(singleCharDots[index]);
+      if (selectedSet) selectedSet.style.display = 'block';
+      if (selectedDot) {
+        selectedDot.style.backgroundColor = '#4CAF50';
+        selectedDot.classList.add('active');
+      }
+
+      currentSingleCharSet = index;
+
+      // Reset loop count when manually switching or when specified
+      if (resetLoopCount) {
+        singleCharLoopCount = 0;
+      }
+    }
+
+    // Track video loops and switch after playing twice
+    setInterval(() => {
+      singleCharLoopCount++;
+
+      // Switch to next set after videos have played twice
+      if (singleCharLoopCount >= singleCharLoopsBeforeSwitch) {
+        currentSingleCharSet = (currentSingleCharSet + 1) % singleCharSets.length;
+        showSingleCharSet(currentSingleCharSet, true);
+      }
+    }, singleCharVideoDuration);
+
+    // Allow manual switching with dots
+    window.showSingleCharSetManual = function(index) {
+      showSingleCharSet(index, true);
+    };
+  </script>
+</div>
 <!------------- Citation ------------------>
-<div class="content">
-  <h2 style="text-align:center; color: white; background: none !important; -webkit-text-fill-color: white !important; font-size: 45px;">Citation</h2>
-  <div style="background-color: #000000; padding: 20px; border-radius: 10px; border-left: 4px solid #667eea; margin: 20px 0;">
-    <pre style="background: none; padding: 0; margin: 0; font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace; font-size: 14px; color: white;">@article{mimix2025,
-  title={Mimix: Character Mixing for Video Generation},
-  author={Tingting Liao, Chongjian Ge, Guangyi Liu, Hao Li, Yi Zhou},
-  journal={},
-  year={2025}
+<div class="content" style="display: flex; flex-direction: column; align-items: center; padding: 60px 20px;">
+  <h2 style="text-align:center; color: white; background: none !important; -webkit-text-fill-color: white !important; font-size: 48px; margin-bottom: 40px; font-weight: 700; letter-spacing: 2px;">📚 Citation</h2>
+  <div style="position: relative; max-width: 1200px; width: 100%; background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); padding: 30px; border-radius: 20px; border: 2px solid rgba(102, 126, 234, 0.5); box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2), inset 0 0 20px rgba(102, 126, 234, 0.05); backdrop-filter: blur(10px);">
+    <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(90deg, #667eea, #764ba2); padding: 8px 24px; border-radius: 20px; font-size: 12px; font-weight: 600; color: white; letter-spacing: 1px; text-transform: uppercase;">BibTeX</div>
+    <pre style="background: none; padding: 0; margin: 0; font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', monospace; font-size: 15px; color: #e0e0e0; line-height: 1.6; text-shadow: 0 0 10px rgba(102, 126, 234, 0.3);">@article{mimix2025,
+  title   = {Mimix: Character Mixing for Video Generation},
+  author  = {Tingting Liao, Chongjian Ge, Guangyi Liu, Hao Li, Yi Zhou}, 
+  journal = {},
+  year    = {2025}
 }</pre>
+    <button onclick="navigator.clipboard.writeText('@article{mimix2025,\\n  title={Mimix: Character Mixing for Video Generation},\\n  author={Tingting Liao, Chongjian Ge, Guangyi Liu, Hao Li, Yi Zhou},\\n  journal={},\\n  year={2025}\\n}')" style="position: absolute; top: 20px; right: 20px; background: rgba(102, 126, 234, 0.2); border: 1px solid rgba(102, 126, 234, 0.4); color: white; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 12px; transition: all 0.3s ease; font-weight: 500;" onmouseover="this.style.background='rgba(102, 126, 234, 0.4)'" onmouseout="this.style.background='rgba(102, 126, 234, 0.2)'">📋 Copy</button>
   </div>
+  <p style="margin-top: 30px; color: rgba(255, 255, 255, 0.7); font-size: 16px; text-align: center; max-width: 600px;">If you find our work useful in your research, please consider citing our paper.</p>
 </div>
 
 <script>

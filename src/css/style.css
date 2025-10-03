@@ -58,7 +58,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.3);
+  background: transparent;
   pointer-events: none;
   display: flex;
   align-items: center;
@@ -1180,9 +1180,9 @@ h1.modern-title {
   filter: none;
 }
 
-/* GitHub icon styling for code button - invert to white */
+/* GitHub icon styling for code button - pure white */
 .button-code .button-icon {
-  filter: invert(1);
+  filter: brightness(0) invert(1);
 }
 
 

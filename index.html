@@ -22,26 +22,28 @@
 
 <!-- Hero Video Background removed -->
 
-<div class="header-content" style="position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; overflow: hidden; margin: 0; padding: 0; width: 100vw; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%); border-radius: 0; box-shadow: none;">
+<div class="header-content" style="position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; overflow: visible; margin: 0; padding: 0; width: 100vw; margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%); border-radius: 0; box-shadow: none;">
   <!-- Background videos for the header (rotating) -->
-  <video autoplay muted loop playsinline class="intro-bg-video" id="introBgVideo5" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: -3; opacity: 0; transition: opacity 1s ease; filter: brightness(1.2);">
-    <source src="./src/videos/multi_comparison/pair_5_aquarium/ours.mp4" type="video/mp4">
-  </video>
-  <video autoplay muted loop playsinline class="intro-bg-video active" id="introBgVideo1" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: -2; opacity: 1; transition: opacity 1s ease; filter: brightness(1.2);">
-    <source src="./src/videos/more_results/20.mp4" type="video/mp4">
-  </video>
-  <video autoplay muted loop playsinline class="intro-bg-video" id="introBgVideo2" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: -3; opacity: 0; transition: opacity 1s ease; filter: brightness(1.2);">
-    <source src="./src/videos/more_results/09.mp4" type="video/mp4">
-  </video>
-  <video autoplay muted loop playsinline class="intro-bg-video" id="introBgVideo3" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: -3; opacity: 0; transition: opacity 1s ease; filter: brightness(1.2);">
-    <source src="./src/videos/more_results/04.mp4" type="video/mp4">
-  </video>
-  <video autoplay muted loop playsinline class="intro-bg-video" id="introBgVideo4" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: -3; opacity: 0; transition: opacity 1s ease; filter: brightness(1.2);">
-    <source src="./src/videos/more_results/08.mp4" type="video/mp4">
-  </video>
-
-  <!-- Light overlay for better text visibility -->
-  <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.2) 100%); z-index: -1;"></div>
+  <div class="intro-video-container" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -10; transition: opacity 0.5s ease;">
+    
+    <video autoplay muted loop playsinline class="intro-bg-video active" id="introBgVideo1" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; opacity: 1; transition: opacity 1s ease; filter: brightness(1.2);">
+      <source src="./src/videos/multi_comparison/pair_5_aquarium/ours.mp4" type="video/mp4">
+    </video>
+    <video autoplay muted loop playsinline class="intro-bg-video" id="introBgVideo3" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; opacity: 0; transition: opacity 1s ease; filter: brightness(1.2);">
+      <source src="./src/videos/more_results/20.mp4" type="video/mp4">
+    </video>
+    <video autoplay muted loop playsinline class="intro-bg-video" id="introBgVideo4" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; opacity: 0; transition: opacity 1s ease; filter: brightness(1.2);">
+      <source src="./src/videos/more_results/09.mp4" type="video/mp4">
+    </video>
+    <video autoplay muted loop playsinline class="intro-bg-video" id="introBgVideo2" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; opacity: 0; transition: opacity 1s ease; filter: brightness(1.2);">
+      <source src="./src/videos/more_results/04.mp4" type="video/mp4">
+    </video>
+    <video autoplay muted loop playsinline class="intro-bg-video" id="introBgVideo5" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; opacity: 0; transition: opacity 1s ease; filter: brightness(1.2);">
+      <source src="./src/videos/more_results/08.mp4" type="video/mp4">
+    </video> 
+    <!-- Light overlay for better text visibility -->
+    <div style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.2) 100%); z-index: 1;"></div>
+  </div>
 
   <!-- Decorative elements -->
   <div class="header-decoration top-left"></div>

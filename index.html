@@ -49,15 +49,210 @@
   <div class="header-decoration top-left"></div>
   <div class="header-decoration bottom-right"></div>
 
-  <!-- Modern gradient title with letter animation -->
-  <h1 class="modern-title">
-    <span class="title-letter" data-letter="M" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">M</span><span class="title-letter" data-letter="I" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">I</span><span class="title-letter" data-letter="M" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">M</span><span class="title-letter" data-letter="I" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">I</span><span class="title-letter" data-letter="X" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">X</span>
-  </h1>
+  <!-- Ultra cool animated title -->
+  <div class="epic-title-container" style="position: relative; display: inline-block; margin: 20px 0;">
+    <!-- Glowing particles background effect -->
+    <div class="particles-bg" style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; pointer-events: none; z-index: 0;">
+      <div style="position: absolute; width: 4px; height: 4px; background: radial-gradient(circle, #fff, transparent); border-radius: 50%; animation: float-particle 10s infinite linear; top: 20%; left: 10%;"></div>
+      <div style="position: absolute; width: 3px; height: 3px; background: radial-gradient(circle, #27d8fe, transparent); border-radius: 50%; animation: float-particle 8s infinite linear reverse; top: 60%; left: 80%;"></div>
+      <div style="position: absolute; width: 5px; height: 5px; background: radial-gradient(circle, #f32f61, transparent); border-radius: 50%; animation: float-particle 12s infinite linear; top: 70%; left: 30%;"></div>
+      <div style="position: absolute; width: 3px; height: 3px; background: radial-gradient(circle, #3ef879, transparent); border-radius: 50%; animation: float-particle 9s infinite linear reverse; top: 30%; left: 70%;"></div>
+    </div>
 
-  <!-- Professional subtitle -->
-  <p class="modern-subtitle">
-    Character Mixing for Video Generation
+    <h1 class="modern-title" style="position: relative; z-index: 1; font-size: 120px; font-weight: 900; letter-spacing: 15px; margin: 0; font-family: 'Orbitron', 'Arial Black', sans-serif;">
+      <span class="mega-letter" data-letter="M" style="
+        display: inline-block;
+        position: relative;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        opacity: 0;
+        animation: letter-appear 0.5s ease forwards, letter-float 6s ease-in-out infinite 2.5s;
+        animation-delay: 0s, 2.5s;
+        transform-style: preserve-3d;
+        transition: all 0.3s ease;
+      ">M</span><span class="mega-letter" data-letter="I" style="
+        display: inline-block;
+        position: relative;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        opacity: 0;
+        animation: letter-appear 0.5s ease forwards, letter-float 6s ease-in-out infinite 3s;
+        animation-delay: 0.5s, 3s;
+        transform-style: preserve-3d;
+        transition: all 0.3s ease;
+      ">I</span><span class="mega-letter" data-letter="M" style="
+        display: inline-block;
+        position: relative;
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        opacity: 0;
+        animation: letter-appear 0.5s ease forwards, letter-float 6s ease-in-out infinite 3.5s;
+        animation-delay: 1s, 3.5s;
+        transform-style: preserve-3d;
+        transition: all 0.3s ease;
+      ">M</span><span class="mega-letter" data-letter="I" style="
+        display: inline-block;
+        position: relative;
+        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        opacity: 0;
+        animation: letter-appear 0.5s ease forwards, letter-float 6s ease-in-out infinite 4s;
+        animation-delay: 1.5s, 4s;
+        transform-style: preserve-3d;
+        transition: all 0.3s ease;
+      ">I</span><span class="mega-letter" data-letter="X" style="
+        display: inline-block;
+        position: relative;
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        opacity: 0;
+        animation: letter-appear 0.5s ease forwards, letter-float 6s ease-in-out infinite 4.5s, spin-letter 8s linear infinite 4.5s;
+        animation-delay: 2s, 4.5s, 4.5s;
+        transform-style: preserve-3d;
+        transition: all 0.3s ease;
+      ">X</span>
+    </h1>
+
+    <!-- Lightning effect overlay -->
+    <div class="lightning-effect" style="
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #fff, transparent);
+      transform: translateY(-50%);
+      opacity: 0;
+      animation: lightning-strike 4s infinite;
+      pointer-events: none;
+    "></div>
+  </div>
+
+  <!-- Add keyframe animations -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
+
+
+    @keyframes letter-appear {
+      0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+      }
+      50% {
+        transform: translateY(-5px) scale(1.1);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes letter-float {
+      0%, 100% { transform: translateY(0) rotateX(0) rotateY(0); }
+      25% { transform: translateY(-10px) rotateX(5deg) rotateY(-5deg); }
+      50% { transform: translateY(-5px) rotateX(-5deg) rotateY(5deg); }
+      75% { transform: translateY(-15px) rotateX(5deg) rotateY(5deg); }
+    }
+
+    @keyframes spin-letter {
+      0% { transform: rotateZ(0deg); }
+      100% { transform: rotateZ(360deg); }
+    }
+
+    @keyframes lightning-strike {
+      0%, 90%, 100% { opacity: 0; transform: translateY(-50%) scaleX(0); }
+      93% { opacity: 1; transform: translateY(-50%) scaleX(1); }
+      95% { opacity: 0; transform: translateY(-50%) scaleX(1); }
+    }
+
+    @keyframes float-particle {
+      0% { transform: translate(0, 0) scale(0); opacity: 0; }
+      10% { transform: translate(10px, -10px) scale(1); opacity: 1; }
+      50% { transform: translate(-20px, -50px) scale(0.8); opacity: 0.5; }
+      90% { transform: translate(30px, -90px) scale(0.5); opacity: 0.2; }
+      100% { transform: translate(0, -100px) scale(0); opacity: 0; }
+    }
+
+    .mega-letter:hover {
+      animation-play-state: paused !important;
+      transform: scale(1.3) rotateZ(-5deg) !important;
+      cursor: pointer;
+    }
+
+    .mega-letter::before {
+      content: attr(data-letter);
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      background: inherit;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0.3;
+      transform: translateZ(-5px);
+      z-index: -1;
+      filter: blur(2px);
+    }
+
+  </style>
+
+  <!-- Professional subtitle with typing effect -->
+  <p class="modern-subtitle" style="position: relative;">
+    <span id="typed-subtitle" style="border-right: 3px solid rgba(255, 255, 255, 0.8);"></span>
   </p>
+
+  <script>
+    // Typing effect for subtitle (runs once)
+    document.addEventListener('DOMContentLoaded', () => {
+      const text = "Character Mixing for Video Generation";
+      const typedElement = document.getElementById('typed-subtitle');
+      let index = 0;
+
+      function typeWriter() {
+        if (!typedElement) return;
+
+        // Handle typing
+        if (index < text.length) {
+          typedElement.textContent = text.substring(0, index + 1);
+          index++;
+          setTimeout(typeWriter, 100); // Typing speed
+        }
+        // When complete, remove cursor
+        else if (index === text.length) {
+          // Remove the blinking cursor border
+          typedElement.style.borderRight = 'none';
+          typedElement.style.animation = 'none';
+        }
+      }
+
+      // Add blinking cursor animation (only while typing)
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes blink-cursor {
+          0%, 49% { border-color: rgba(255, 255, 255, 0.8); }
+          50%, 100% { border-color: transparent; }
+        }
+        #typed-subtitle {
+          animation: blink-cursor 1s infinite;
+          padding-right: 3px;
+        }
+      `;
+      document.head.appendChild(style);
+
+      // Start typing after a short delay
+      setTimeout(typeWriter, 1000);
+    });
+  </script>
 
   <!-- Conference -->
   <!-- <div class="conference-top"></div> -->
@@ -93,7 +288,7 @@
 
   <!-- Modern buttons section -->
   <div class="buttons-modern">
-    <a target="_blank" href="#" class="button-modern button-paper">
+    <a target="_blank" href="https://arxiv.org/pdf/2510.05093" class="button-modern button-paper">
       <img src="./src/img/th.png" alt="arXiv" class="button-icon arxiv-icon" style="width: 20px; height:15px;">
       <span>arXiv</span>
     </a>
@@ -1697,8 +1892,11 @@ document.addEventListener('DOMContentLoaded', () => {
     <pre style="background: none; padding: 0; margin: 0; font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', monospace; font-size: 15px; color: #e0e0e0; line-height: 1.6; text-shadow: 0 0 10px rgba(102, 126, 234, 0.3);">@article{mimix2025,
   title   = {Character Mixing for Video Generation},
   author  = {Tingting Liao, Chongjian Ge, Guangyi Liu, Hao Li, Yi Zhou}, 
-  journal = {},
   year    = {2025}
+  eprint       = {2510.05093},
+  archivePrefix= {arXiv},
+  primaryClass = {cs.CV},
+  note         = {arXiv preprint}
 }</pre>
     <button onclick="navigator.clipboard.writeText('@article{mimix2025,\\n  title={Character Mixing for Video Generation},\\n  author={Tingting Liao, Chongjian Ge, Guangyi Liu, Hao Li, Yi Zhou},\\n  journal={},\\n  year={2025}\\n}')" style="position: absolute; top: 20px; right: 20px; background: rgba(102, 126, 234, 0.2); border: 1px solid rgba(102, 126, 234, 0.4); color: white; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 12px; transition: all 0.3s ease; font-weight: 500;" onmouseover="this.style.background='rgba(102, 126, 234, 0.4)'" onmouseout="this.style.background='rgba(102, 126, 234, 0.2)'">📋 Copy</button>
   </div>

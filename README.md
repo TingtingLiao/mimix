@@ -25,7 +25,7 @@
   <!-- <a href='LICENSE'><img src='https://img.shields.io/badge/license-MIT-yellow'></a> -->
   <a href='https://arxiv.org/pdf/2510.05093'><img src='https://img.shields.io/badge/arXiv-2510.05093-red?logo=arxiv&logoColor=darkred&labelColor=white'></a>  &ensp;
   <a href='https://tingtingliao.github.io/mimix'><img src='https://img.shields.io/badge/project-page-green?logo=googlechrome&logoColor=green&labelColor=white'></a>  &ensp;
-  <a href=''><img src='https://img.shields.io/badge/license-MIT-blue?logo=C&logoColor=blue&labelColor=white'></a>
+  <a href=''><img src='https://img.shields.io/badge/license-MIT-blue?logo=C&logoColor=blue&labelColor=white'></a> &ensp;
   <a href="https://github.com/TingtingLiao/mimix"><img src="https://img.shields.io/github/stars/TingtingLiao/mimix?logo=github&logoColor=black"></a>  &ensp;
 </div>  
 

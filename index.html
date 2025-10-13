@@ -423,6 +423,30 @@
       display: block;
     }
 
+    /* Caption overlay styles */
+    .more-results-grid .video-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 50%, transparent 100%);
+      color: white;
+      padding: 20px 15px 15px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      opacity: 0;
+      font-size: 14px;
+      line-height: 1.4;
+      text-align: center;
+      font-weight: 500;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .more-results-grid .video-wrapper:hover .video-caption {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
     @media (max-width: 1400px) {
       .more-results-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -447,101 +471,121 @@
       <video autoplay muted loop playsinline controls>
         <source src="./src/videos/more_results/01.mp4" type="video/mp4">
       </video>
+      <div class="video-caption">Grizzly and Panda invite Young Sheldon to their treehouse, where Sheldon tries explaining physics while the bears keep distracting him with snacks.      </div>
     </div>
     <div class="video-wrapper">
       <video autoplay muted loop playsinline controls>
         <source src="./src/videos/more_results/02.mp4" type="video/mp4">
       </video>
+      <div class="video-caption">Mr. Bean is eating spaghetti at a park bench when Panda walks by with a trumpet, playing off-key. The loud noise makes Mr. Bean fling spaghetti in the air. It lands on Panda's head, and they both look at each other in silence.</div>
     </div>
     <div class="video-wrapper">
       <video autoplay muted loop playsinline controls>
         <source src="./src/videos/more_results/03.mp4" type="video/mp4">
       </video>
+      <div class="video-caption">Ice Bear and Tom join a cooking competition. Ice Bear works quietly with precision, Tom burns everything chasing Jerry across the stove, and George keeps trying to microwave a raw steak. # The background is cartoon style. </div>
     </div>
     <div class="video-wrapper">
       <video autoplay muted loop playsinline controls>
         <source src="./src/videos/more_results/04.mp4" type="video/mp4">
       </video>
+      <div class="video-caption">Ice Bear calmly paints a picture of Tom, while Tom keeps trying to pose but falls into the paint buckets. </div>
     </div>
     <div class="video-wrapper">
       <video autoplay muted loop playsinline controls>
         <source src="./src/videos/more_results/05.mp4" type="video/mp4">
       </video>
+      <div class="video-caption">Tom chases Jerry through a city alley but crashes into Ice Bear's shopping cart. Jerry hides in a jar of honey as Ice Bear casually wheels away, ignoring the chaos behind him.</div>
     </div>
     <div class="video-wrapper">
       <video autoplay muted loop playsinline controls>
         <source src="./src/videos/more_results/06.mp4" type="video/mp4">
       </video>
+      <div class="video-caption">Mr. Bean balances on a rolling office chair while descending a small hill. His tie flaps in the wind as he clutches a briefcase. Panda stands nearby filming the entire stunt on a phone. Mr. Bean waves confidently, then rolls off-screen straight into a bush.</div>
     </div>
     <div class="video-wrapper">
       <video autoplay muted loop playsinline controls>
         <source src="./src/videos/more_results/07.mp4" type="video/mp4">
       </video>
+      <div class="video-caption">At a quiet library, Mr.Bean sneezes loudly, startling Ice Bear who's balancing a stack of books. The books topple like dominoes, landing with a thud. Both characters exchange a wide-eyed glance before tiptoeing out, pretending nothing happened.</div>
     </div>
     <div class="video-wrapper">
       <video autoplay muted loop playsinline controls>
         <source src="./src/videos/more_results/08.mp4" type="video/mp4">
       </video>
+      <div class="video-caption">Tom chases Jerry into a library, where Young Sheldon shushes them angrily, but then gets caught in the chaos himself.</div>
     </div>
     <div class="video-wrapper">
       <video autoplay muted loop playsinline controls>
         <source src="./src/videos/more_results/09.mp4" type="video/mp4">
       </video>
+      <div class="video-caption">Tom hides in Mr. Bean’s closet, but when Jerry joins, they both end up wearing Bean’s oversized clothes. </div>
     </div>
     <div class="video-wrapper">
       <video autoplay muted loop playsinline controls>
         <source src="./src/videos/more_results/10.mp4" type="video/mp4">
       </video>
+      <div class="video-caption">In a grocery store aisle, Mr. Bean is stacking cereal boxes into a tower. Pada sneezes nearby, causing the tower to collapse. Cereal flies everywhere, and both characters slowly back away, pretending they had nothing to do with it.</div>
     </div>
     <div class="video-wrapper">
       <video autoplay muted loop playsinline controls>
         <source src="./src/videos/more_results/11.mp4" type="video/mp4">
       </video>
+      <div class="video-caption">Young Sheldon judges a spelling bee, but Panda spells words wrong on purpose, while Jerry sneaks in funny answers.</div>
     </div>
     <div class="video-wrapper">
       <video autoplay muted loop playsinline controls>
         <source src="./src/videos/more_results/12.mp4" type="video/mp4">
       </video>
+      <div class="video-caption">Young Sheldon visits Mr. Bean’s car, shocked at its strange gadgets, while Jerry sneaks around stealing cookies from the dashboard.  </div>
     </div>
     <div class="video-wrapper">
       <video autoplay muted loop playsinline controls>
         <source src="./src/videos/more_results/13.mp4" type="video/mp4">
       </video>
+      <div class="video-caption">Mr. Bean kneels to pet a robotic dog in a tech store. Tom sneaks up and swaps it with a vacuum cleaner on wheels.</div>
     </div>
     <div class="video-wrapper">
       <video autoplay muted loop playsinline controls>
         <source src="./src/videos/more_results/14.mp4" type="video/mp4">
       </video>
+      <div class="video-caption">Tom, Grizzly, and Ice Bear form a band on a street corner, with Jerry sabotaging Tom's guitars, sending cheese flying and attracting a crowd of amused pigeons.</div>
     </div>
     <div class="video-wrapper">
       <video autoplay muted loop playsinline controls>
         <source src="./src/videos/more_results/15.mp4" type="video/mp4">
       </video>
+      <div class="video-caption">Generated Video Sample #15</div>
     </div>
     <div class="video-wrapper">
       <video autoplay muted loop playsinline controls>
         <source src="./src/videos/more_results/16.mp4" type="video/mp4">
       </video>
+      <div class="video-caption">   </div>
     </div>
     <div class="video-wrapper">
       <video autoplay muted loop playsinline controls>
         <source src="./src/videos/more_results/17.mp4" type="video/mp4">
       </video>
+      <div class="video-caption">Young Sheldon Cooper arranges orange traffic cones to run a controlled physics experiment. Grizzley mistakes it for an obstacle course, sprints through at full speed, knocks over every cone, and slides through the grass. Sheldon stares silently, blinking at the chaos before writing down observations. </div>
     </div>
     <div class="video-wrapper">
       <video autoplay muted loop playsinline controls>
         <source src="./src/videos/more_results/18.mp4" type="video/mp4">
       </video>
+      <div class="video-caption">Mr. Bean blows up a balloon. Jerry hides inside. Mr. Bean pops it and Jerry lands on Mr. Bean's head.</div>
     </div>
     <div class="video-wrapper">
       <video autoplay muted loop playsinline controls>
         <source src="./src/videos/more_results/19.mp4" type="video/mp4">
       </video>
+      <div class="video-caption">Panda teaches Jerry a dance routine for his livestream, while Tom tries to join but clumsily knocks over the camera and lights.</div>
     </div>
     <div class="video-wrapper">
       <video autoplay muted loop playsinline controls>
         <source src="./src/videos/more_results/20.mp4" type="video/mp4">
       </video>
+      <div class="video-caption">Young Sheldon Cooper and Panda are sitting on opposite benches in a park, trying to imitate each other's every move. After a series of increasingly ridiculous poses, they both burst out laughing at their synchronized goofiness.</div>
     </div>
   </div>
   </div>
@@ -1362,7 +1406,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
 
       <!-- Example 10 -->
-      <div class="comparison-row" style="display: flex; gap: 25px; margin-bottom: 35px; padding: 15px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), transparent); border-radius: 20px; align-items: stretch;">
+      <div class="comparison-row" style="display: flex; gap: 25px; margin-bottom: 15px; padding: 15px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), transparent); border-radius: 20px; align-items: stretch;">
         <div style="flex: 1; position: relative; transform: scale(1); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.03)'; this.style.zIndex='10'" onmouseout="this.style.transform='scale(1)'; this.style.zIndex='1'">
           <video autoplay muted loop controls style="width: 100%; height: 220px; object-fit: cover; background: black; border-radius: 16px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); border: 2px solid rgba(76, 175, 80, 0.3);">
             <source src="./src/videos/single_comparison/example_10/ours.mp4" type="video/mp4">
@@ -1389,8 +1433,13 @@ document.addEventListener('DOMContentLoaded', () => {
           </video>
         </div>
       </div>
+      <div style="text-align: center; margin-bottom: 35px; padding: 10px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)); border-radius: 12px;">
+        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px; margin: 0; font-style: italic; line-height: 1.5;">
+          <span style="color: #4ecdc4; font-weight: 600;">Prompt:</span> "Tom is sitting on the floor with a bowl of milk, drinking it happily while closing his eyes in comfort"
+        </p>
+      </div>
       <!-- Example 30 -->
-      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 10px; align-items: stretch;">
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example_30/ours.mp4" type="video/mp4">
         </video>
@@ -1407,8 +1456,13 @@ document.addEventListener('DOMContentLoaded', () => {
           <source src="./src/videos/single_comparison/example_30/videobooth.mp4" type="video/mp4">
         </video>
       </div>
+      <div style="text-align: center; margin-bottom: 30px; padding: 10px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)); border-radius: 12px;">
+        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px; margin: 0; font-style: italic; line-height: 1.5;">
+          <span style="color: #4ecdc4; font-weight: 600;">Prompt:</span> "Panda is holding a big milk tea, sipping happily while scrolling through his favorite social media app, completely ignoring the world around him"
+        </p>
+      </div>
       <!-- Example 21 -->
-      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 10px; align-items: stretch;">
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example_21/ours.mp4" type="video/mp4">
         </video>
@@ -1424,6 +1478,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example_21/videobooth.mp4" type="video/mp4">
         </video>
+      </div>
+      <div style="text-align: center; margin-bottom: 30px; padding: 10px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)); border-radius: 12px;">
+        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px; margin: 0; font-style: italic; line-height: 1.5;">
+          <span style="color: #4ecdc4; font-weight: 600;">Prompt:</span> "Ice Bear is silently cleaning the kitchen with great focus, wearing a small apron, showing his calm and serious personality compared to his brothers"
+        </p>
       </div>
     </div>
 
@@ -1449,7 +1508,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
 
       <!-- Example 28 -->
-      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 10px; align-items: stretch;">
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example_28/ours.mp4" type="video/mp4">
         </video>
@@ -1466,8 +1525,13 @@ document.addEventListener('DOMContentLoaded', () => {
           <source src="./src/videos/single_comparison/example_28/videobooth.mp4" type="video/mp4">
         </video>
       </div>
+      <div style="text-align: center; margin-bottom: 30px; padding: 10px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)); border-radius: 12px;">
+        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px; margin: 0; font-style: italic; line-height: 1.5;">
+          <span style="color: #4ecdc4; font-weight: 600;">Prompt:</span> "Panda is holding a big milk tea, sipping happily while scrolling through his favorite social media app, completely ignoring the world around him."
+        </p>
+      </div>
       <!-- Example Mary2 -->
-      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 10px; align-items: stretch;">
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example_mary2/ours.mp4" type="video/mp4">
         </video>
@@ -1484,8 +1548,13 @@ document.addEventListener('DOMContentLoaded', () => {
           <source src="./src/videos/single_comparison/example_mary2/videobooth.mp4" type="video/mp4">
         </video>
       </div>
+      <div style="text-align: center; margin-bottom: 30px; padding: 10px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)); border-radius: 12px;">
+        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px; margin: 0; font-style: italic; line-height: 1.5;">
+          <span style="color: #4ecdc4; font-weight: 600;">Prompt:</span> "Mary Cooper is in the kitchen, baking cookies with a warm smile, humming softly while preparing a surprise for her children.          "
+        </p>
+      </div>
       <!-- Example 25 -->
-      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 10px; align-items: stretch;">
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example_25/ours.mp4" type="video/mp4">
         </video>
@@ -1501,6 +1570,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example_25/videobooth.mp4" type="video/mp4">
         </video>
+      </div>
+      <div style="text-align: center; margin-bottom: 30px; padding: 10px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)); border-radius: 12px;">
+        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px; margin: 0; font-style: italic; line-height: 1.5;">
+          <span style="color: #4ecdc4; font-weight: 600;">Prompt:</span> "Ice Bear is sitting on the floor, drawing cute animal pictures in a sketchbook, keeping his talent hidden while everyone else is busy."
+        </p>
       </div>
     </div>
 
@@ -1526,7 +1600,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
 
       <!-- Example 22 -->
-      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 10px; align-items: stretch;">
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example_22/ours.mp4" type="video/mp4">
         </video>
@@ -1543,8 +1617,13 @@ document.addEventListener('DOMContentLoaded', () => {
           <source src="./src/videos/single_comparison/example_22/videobooth.mp4" type="video/mp4">
         </video>
       </div>
+      <div style="text-align: center; margin-bottom: 30px; padding: 10px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)); border-radius: 12px;">
+        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px; margin: 0; font-style: italic; line-height: 1.5;">
+          <span style="color: #4ecdc4; font-weight: 600;">Prompt:</span> "Ice Bear is practicing martial arts in the living room, moving slowly but perfectly, as if he is training for an important mission. "
+        </p>
+      </div>
       <!-- Example Penny1 -->
-      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 10px; align-items: stretch;">
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example_penny1/ours.mp4" type="video/mp4">
         </video>
@@ -1561,8 +1640,13 @@ document.addEventListener('DOMContentLoaded', () => {
           <source src="./src/videos/single_comparison/example_penny1/videobooth.mp4" type="video/mp4">
         </video>
       </div>
+      <div style="text-align: center; margin-bottom: 30px; padding: 10px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)); border-radius: 12px;">
+        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px; margin: 0; font-style: italic; line-height: 1.5;">
+          <span style="color: #4ecdc4; font-weight: 600;">Prompt:</span> "Penny is standing on a stage, nervously holding a microphone, trying to sing while imagining herself as a famous star."
+        </p>
+      </div>
       <!-- Example Mary1 -->
-      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 10px; align-items: stretch;">
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example_mary1/ours.mp4" type="video/mp4">
         </video>
@@ -1578,6 +1662,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example_mary1/videobooth.mp4" type="video/mp4">
         </video>
+      </div>
+      <div style="text-align: center; margin-bottom: 30px; padding: 10px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)); border-radius: 12px;">
+        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px; margin: 0; font-style: italic; line-height: 1.5;">
+          <span style="color: #4ecdc4; font-weight: 600;">Prompt:</span> "Mary Cooper is planting flowers in the garden, wearing gloves and a hat, enjoying the sunshine and the quiet moment of peace."
+        </p>
       </div>
     </div>
 
@@ -1603,7 +1692,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
 
       <!-- Example 20 -->
-      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 10px; align-items: stretch;">
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example_20/ours.mp4" type="video/mp4">
         </video>
@@ -1620,8 +1709,13 @@ document.addEventListener('DOMContentLoaded', () => {
           <source src="./src/videos/single_comparison/example_20/videobooth.mp4" type="video/mp4">
         </video>
       </div>
+      <div style="text-align: center; margin-bottom: 30px; padding: 10px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)); border-radius: 12px;">
+        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px; margin: 0; font-style: italic; line-height: 1.5;">
+          <span style="color: #4ecdc4; font-weight: 600;">Prompt:</span> "Grizzly is standing in a shopping mall, handing out flyers with too much enthusiasm, while people look confused but also amused by his energy."
+        </p>
+      </div>
       <!-- Example1 -->
-      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 10px; align-items: stretch;">
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example1/ours.mp4" type="video/mp4">
         </video>
@@ -1638,8 +1732,13 @@ document.addEventListener('DOMContentLoaded', () => {
           <source src="./src/videos/single_comparison/example1/videobooth.mp4" type="video/mp4">
         </video>
       </div>
+      <div style="text-align: center; margin-bottom: 30px; padding: 10px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)); border-radius: 12px;">
+        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px; margin: 0; font-style: italic; line-height: 1.5;">
+          <span style="color: #4ecdc4; font-weight: 600;">Prompt:</span> "Mr. Bean is standing in front of a mirror, practicing strange faces and silly dance moves, enjoying his own performance as if it were a comedy show."
+        </p>
+      </div>
       <!-- Example 31 -->
-      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 10px; align-items: stretch;">
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example_31/ours.mp4" type="video/mp4">
         </video>
@@ -1655,6 +1754,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example_31/videobooth.mp4" type="video/mp4">
         </video>
+      </div>
+      <div style="text-align: center; margin-bottom: 30px; padding: 10px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)); border-radius: 12px;">
+        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px; margin: 0; font-style: italic; line-height: 1.5;">
+          <span style="color: #4ecdc4; font-weight: 600;">Prompt:</span> "Sheldon is sitting at his desk, carefully building a rocket model, explaining every detail to himself with scientific excitement."
+        </p>
       </div>
     </div>
 
@@ -1680,7 +1784,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
 
       <!-- Example 14 -->
-      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 10px; align-items: stretch;">
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example_14/ours.mp4" type="video/mp4">
         </video>
@@ -1697,8 +1801,13 @@ document.addEventListener('DOMContentLoaded', () => {
           <source src="./src/videos/single_comparison/example_14/videobooth.mp4" type="video/mp4">
         </video>
       </div>
+      <div style="text-align: center; margin-bottom: 30px; padding: 10px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)); border-radius: 12px;">
+        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px; margin: 0; font-style: italic; line-height: 1.5;">
+          <span style="color: #4ecdc4; font-weight: 600;">Prompt:</span> "Jerry is standing on top of a table, looking proud as he holds a crumb of bread bigger than his own body."
+        </p>
+      </div>
       <!-- Example2 -->
-      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 10px; align-items: stretch;">
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example2/ours.mp4" type="video/mp4">
         </video>
@@ -1715,8 +1824,13 @@ document.addEventListener('DOMContentLoaded', () => {
           <source src="./src/videos/single_comparison/example2/videobooth.mp4" type="video/mp4">
         </video>
       </div>
+      <div style="text-align: center; margin-bottom: 30px; padding: 10px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)); border-radius: 12px;">
+        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px; margin: 0; font-style: italic; line-height: 1.5;">
+          <span style="color: #4ecdc4; font-weight: 600;">Prompt:</span> "Jerry is lying on a small bed made of cotton, sleeping peacefully with a little blanket covering him."
+        </p>
+      </div>
       <!-- Example George2 -->
-      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 10px; align-items: stretch;">
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example_george2/ours.mp4" type="video/mp4">
         </video>
@@ -1732,6 +1846,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example_george2/videobooth.mp4" type="video/mp4">
         </video>
+      </div>
+      <div style="text-align: center; margin-bottom: 30px; padding: 10px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)); border-radius: 12px;">
+        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px; margin: 0; font-style: italic; line-height: 1.5;">
+          <span style="color: #4ecdc4; font-weight: 600;">Prompt:</span> "George Cooper is coaching a football game, shouting instructions to the kids, clapping proudly when his team scores a point."
+        </p>
       </div>
     </div>
 
@@ -1757,7 +1876,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
 
       <!-- Example 01 -->
-      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 10px; align-items: stretch;">
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example_01/ours.mp4" type="video/mp4">
         </video>
@@ -1774,8 +1893,13 @@ document.addEventListener('DOMContentLoaded', () => {
           <source src="./src/videos/single_comparison/example_01/videobooth.mp4" type="video/mp4">
         </video>
       </div>
+      <div style="text-align: center; margin-bottom: 30px; padding: 10px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)); border-radius: 12px;">
+        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px; margin: 0; font-style: italic; line-height: 1.5;">
+          <span style="color: #4ecdc4; font-weight: 600;">Prompt:</span> "Mr. Bean is sitting alone on a park bench, trying to eat his sandwich while a bird keeps stealing the crumbs, making him look frustrated but also funny."
+        </p>
+      </div>
       <!-- Example 04 -->
-      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 10px; align-items: stretch;">
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example_04/ours.mp4" type="video/mp4">
         </video>
@@ -1792,8 +1916,13 @@ document.addEventListener('DOMContentLoaded', () => {
           <source src="./src/videos/single_comparison/example_04/videobooth.mp4" type="video/mp4">
         </video>
       </div>
+      <div style="text-align: center; margin-bottom: 30px; padding: 10px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)); border-radius: 12px;">
+        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px; margin: 0; font-style: italic; line-height: 1.5;">
+          <span style="color: #4ecdc4; font-weight: 600;">Prompt:</span> "Mr. Bean is in a supermarket, secretly opening candy boxes and tasting them before quickly putting them back, hoping no one notices his silly trick."
+        </p>
+      </div>
       <!-- Example George1 -->
-      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 30px; align-items: stretch;">
+      <div class="comparison-row" style="display: flex; gap: 20px; margin-bottom: 10px; align-items: stretch;">
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example_george1/ours.mp4" type="video/mp4">
         </video>
@@ -1809,6 +1938,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <video autoplay muted loop controls style="flex: 1; width: 20%; height: 200px; object-fit: cover; background: black; border-radius: 12px;">
           <source src="./src/videos/single_comparison/example_george1/videobooth.mp4" type="video/mp4">
         </video>
+      </div>
+      <div style="text-align: center; margin-bottom: 30px; padding: 10px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)); border-radius: 12px;">
+        <p style="color: rgba(255, 255, 255, 0.9); font-size: 15px; margin: 0; font-style: italic; line-height: 1.5;">
+          <span style="color: #4ecdc4; font-weight: 600;">Prompt:</span> "George Cooper is barbecuing outside, flipping burgers with a big smile, while the family gathers around waiting for food."
+        </p>
       </div>
     </div>
 

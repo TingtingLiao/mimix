@@ -33,7 +33,9 @@
 
 ---
 
-https://github.com/user-attachments/assets/cb6e66ea-187e-44d8-a5e3-5fa715ef9b31
+<!-- https://github.com/user-attachments/assets/cb6e66ea-187e-44d8-a5e3-5fa715ef9b31 -->
+
+https://github.com/user-attachments/assets/37d8371d-5606-4e49-9455-b56918bdb344
 
 ## 📖 Citation
 
